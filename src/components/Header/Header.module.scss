@@ -1,4 +1,18 @@
 .header {
 	display: flex;
 	justify-content: space-between;
+	padding: 0 100px;
+	max-height: 87px;
+	border-bottom: 1px solid #C8C8C8;
+
+	.appName {
+		font-size: 40px;
+		font-weight: normal;
+		color: #007BB0;
+	}
+
+	.burgerMenu {
+		align-self: center;
+		cursor: pointer;
+	}
 }

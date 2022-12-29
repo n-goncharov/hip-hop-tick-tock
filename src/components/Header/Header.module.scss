@@ -5,7 +5,11 @@
 	min-height: 87px;
 	border-bottom: 1px solid #C8C8C8;
 	align-items: center;
+<<<<<<< HEAD
 	box-sizing: border-box;
+	height: 10vh;
+=======
+>>>>>>> 8c98a95167be17d45deae0c61073d40513de6aa3
 
 	.appName {
 		font-size: 40px;
@@ -14,6 +18,15 @@
 	}
 
 	.burgerMenu {
+<<<<<<< HEAD
+		border: none;
+=======
+>>>>>>> 8c98a95167be17d45deae0c61073d40513de6aa3
 		cursor: pointer;
+		padding: 0;
+		background-color: #F9F9F9;
+		border-radius: 50%;
+		width: 57px;
+		height: 57px;
 	}
 }

@@ -2,8 +2,10 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 0 100px;
-	max-height: 87px;
+	min-height: 87px;
 	border-bottom: 1px solid #C8C8C8;
+	align-items: center;
+	box-sizing: border-box;
 
 	.appName {
 		font-size: 40px;
@@ -12,7 +14,6 @@
 	}
 
 	.burgerMenu {
-		align-self: center;
 		cursor: pointer;
 	}
 }

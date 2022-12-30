@@ -3,7 +3,7 @@ import styles from './Menu.module.scss'
 
 const Sidebar = ({ isMenuActive }: any) => {
 	return (
-		<aside className={isMenuActive ? styles.menu : `${styles.menu} ${styles.unactive}`}>
+		<aside className={`${styles.menu} ${isMenuActive ? styles.menuActive : ''}`}>
 			<ChangeTheme />
 		</aside>
 	);

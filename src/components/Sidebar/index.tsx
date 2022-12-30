@@ -3,9 +3,9 @@ import styles from './Sidebar.module.scss'
 
 function Sidebar () {
 	return (
-		<div className={styles.sidebar}>
+		<aside className={styles.sidebar}>
 			<ChangeTheme />
-		</div>
+		</aside>
 	);
 }
 

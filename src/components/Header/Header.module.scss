@@ -2,14 +2,13 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 0 100px;
-	min-height: 87px;
+	height: 70px;
 	border-bottom: 1px solid #C8C8C8;
 	align-items: center;
 	box-sizing: border-box;
-	height: 10vh;
 
 	.appName {
-		font-size: 40px;
+		font-size: 30px;
 		font-weight: normal;
 		color: #007BB0;
 	}

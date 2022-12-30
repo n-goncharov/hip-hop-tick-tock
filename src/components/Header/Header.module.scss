@@ -17,9 +17,13 @@
 		border: none;
 		cursor: pointer;
 		padding: 0;
-		background-color: #F9F9F9;
-		border-radius: 50%;
 		width: 57px;
 		height: 57px;
+		background-color: #fff;
+	}
+
+	.active {
+		background-color: #F9F9F9;
+		border-radius: 50%;
 	}
 }

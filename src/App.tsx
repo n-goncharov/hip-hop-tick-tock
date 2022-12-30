@@ -1,11 +1,14 @@
+import { useState } from "react";
 import Header from './components/Header'
 import Main from './components/Main';
 
-function App() {
+const App = () => {
+  const [isMenuActive, setMenuStatus] = useState(false);
+
   return (
     <>
-      <Header />
-      <Main />
+      <Header isMenuActive={isMenuActive} setMenuStatus={setMenuStatus} />
+      <Main isMenuActive={isMenuActive} />
     </>
   );
 }

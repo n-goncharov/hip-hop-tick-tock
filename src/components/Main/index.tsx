@@ -1,12 +1,12 @@
 import Clock from "../Clock";
-import Sidebar from "../Sidebar";
+import Menu from "../Menu";
 import styles from './Main.module.scss'
 
-function Main() {
+const Main = ({ isMenuActive }: any) => {
 	return (
 		<main className={styles.main}>
 			<Clock />
-			<Sidebar />
+			<Menu isMenuActive={isMenuActive} />
 		</main>
 	);
 }

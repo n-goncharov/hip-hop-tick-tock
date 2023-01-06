@@ -1,7 +1,7 @@
 import ChangeTheme from '../ChangeTheme';
 import styles from './Menu.module.scss'
 
-const Sidebar = ({ isMenuActive }: any) => {
+const Menu = ({ isMenuActive }: any) => {
 	return (
 		<aside className={`${styles.menu} ${isMenuActive ? styles.menuActive : ''}`}>
 			<ChangeTheme />
@@ -9,4 +9,4 @@ const Sidebar = ({ isMenuActive }: any) => {
 	);
 }
 
-export default Sidebar;
+export default Menu;

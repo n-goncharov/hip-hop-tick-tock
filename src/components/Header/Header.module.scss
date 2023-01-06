@@ -17,13 +17,16 @@
 		border: none;
 		cursor: pointer;
 		padding: 0;
-		width: 57px;
-		height: 57px;
+		width: 60px;
+		height: 60px;
 		background-color: #fff;
+		border-radius: 50%;
+		transform: translateX(0);
+		transition: transform 1s, background-color 1s;
 	}
 
 	.burgerActive {
 		background-color: #F9F9F9;
-		border-radius: 50%;
+		transform: translateX(-120px);
 	}
 }

@@ -1,0 +1,4 @@
+@use "sass:math";
+
+$width: math.div(600px, 1920px) * 100;
+$top: 50px;

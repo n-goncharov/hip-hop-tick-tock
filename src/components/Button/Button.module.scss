@@ -1,0 +1,17 @@
+.btn {
+	box-sizing: border-box;
+	border: none;
+	width: 186px;
+	height: 33px;
+	display: flex;
+	align-items: center;
+	gap: 19px;
+	padding-left: 15px;
+	padding-right: 40px;
+	font-size: 20px;
+
+	.btn__img {
+		width: 19px;
+		height: 16px;
+	}
+}

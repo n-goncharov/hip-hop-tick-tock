@@ -1,3 +1,24 @@
-.listTitle {
-	display: inline;
+.list-box {
+	.list-title {
+		display: inline;
+	}
+
+	.btns-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.summary {
+		display: flex;
+		justify-content: space-between;
+		cursor: pointer;
+		list-style: none;
+	}
+
+	.list {
+		list-style: none;
+		padding: 0;
+	}
 }
+
+

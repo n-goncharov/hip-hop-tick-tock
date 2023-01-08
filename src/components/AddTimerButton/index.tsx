@@ -1,9 +1,9 @@
 import Button from "../Button";
 
-const AddTrackButton = () => {
+const AddTimerButton = () => {
 	return (
 		<Button title='добавить' />
 	);
 }
 
-export default AddTrackButton;
+export default AddTimerButton;

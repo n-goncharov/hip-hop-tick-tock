@@ -1,30 +1,40 @@
+import styles from './Menu.module.scss'
 import ChangeTheme from '../ChangeTheme';
 import ListBox from '../ListBox';
-import styles from './Menu.module.scss'
 import AddTrackButton from '../AddTrackButton';
 import RecordButton from '../RecordButton';
 import TrackItem from '../TrackItem';
+import TimerItem from '../TimerItem';
+import AddTimerButton from '../AddTimerButton';
 
 const Menu = ({ isMenuActive }: any) => {
 	const timers = [
-		'таймер'
+		{ id: 1, title: 'Утро', src: 'ссылка на аудио' },
+		{ id: 2, title: 'Похавать', src: 'ссылка на аудио' },
+		{ id: 3, title: 'Иди в военкомат', src: 'ссылка на аудио' },
 	];
 
 	const tracks = [
-		{ id: 1, title: 'Замай - Лучший р...', src: 'ссылка на аудио' },
+		{ id: 1, title: 'Замай - Лучший рэпер вселенной', src: 'ссылка на аудио' },
 		{ id: 2, title: 'Скрипа - Я бедный', src: 'ссылка на аудио' },
 		{ id: 3, title: 'Альянс - На заре', src: 'ссылка на аудио' },
 	];
 
-	let tracksItems = tracks.map((track) => (
-		<TrackItem key={track.id} title={track.title} />
-	));
-
 	return (
-		<aside className={`${styles.menu} ${isMenuActive ? styles.menuActive : ''}`}>
+		<aside className={`${styles.menu} ${isMenuActive ? styles.menu_active : ''}`}>
 			<ChangeTheme />
-			<ListBox title='Мои таймеры' buttons={[<AddTrackButton />, <RecordButton />]} />
-			<ListBox title='Библиотека треков' buttons='buttons' list={tracksItems} />
+
+			<ListBox title='Мои таймеры' buttons={<AddTimerButton />}>
+				{timers.map(timer => (
+					<TimerItem key={timer.id} title={timer.title} />
+				))}
+			</ListBox>
+
+			<ListBox title='Библиотека треков' buttons={[<AddTrackButton key='add-track-button' />, <RecordButton key='record-button' />]}>
+				{tracks.map(track => (
+					<TrackItem key={track.id} title={track.title} />
+				))}
+			</ListBox>
 		</aside>
 	);
 }

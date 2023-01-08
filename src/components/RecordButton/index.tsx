@@ -1,6 +1,8 @@
+import Button from "../Button";
+
 const RecordButton = () => {
 	return (
-		<button><img src="/img/record-button.png" alt="" />записать</button>
+		<Button title='записать'/>
 	);
 }
 

@@ -1,20 +1,25 @@
+@use "sass:math";
+@use "../../menu";
+
+$burger-offset: - math.div(menu.$width, 2) + vw;
+
 .header {
 	font-family: 'Itim', cursive;
 	display: flex;
 	justify-content: space-between;
-	padding: 0 100px;
-	height: 50px;
+	padding-left: 100px;
+	height: menu.$top;
 	border-bottom: 1px solid #C8C8C8;
 	align-items: center;
 	box-sizing: border-box;
 
-	.appName {
+	.app-name {
 		font-size: 30px;
 		font-weight: normal;
 		color: #007BB0;
 	}
 
-	.burgerMenu {
+	.burger {
 		border: none;
 		cursor: pointer;
 		padding: 0;
@@ -22,12 +27,11 @@
 		height: 40px;
 		background-color: #fff;
 		border-radius: 50%;
-		transform: translateX(0);
+		transform: translateX(calc($burger-offset + 20px) );
 		transition: transform 1s, background-color 1s;
 	}
 
-	.burgerActive {
+	.burger_active {
 		background-color: #F9F9F9;
-		transform: translateX(-140px);
 	}
 }

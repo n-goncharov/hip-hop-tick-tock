@@ -1,8 +1,12 @@
 import Button from "../Button";
 
 const RecordButton = () => {
+	const handlerClick = () => {
+		console.log('нажал записать');
+	}
+
 	return (
-		<Button title='записать'/>
+		<Button title='записать' onClick={handlerClick} />
 	);
 }
 

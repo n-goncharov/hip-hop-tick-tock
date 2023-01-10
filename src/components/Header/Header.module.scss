@@ -27,7 +27,7 @@ $burger-offset: - math.div(menu.$width, 2) + vw;
 		height: 40px;
 		background-color: #fff;
 		border-radius: 50%;
-		transform: translateX(calc($burger-offset + 20px) );
+		transform: translateX(calc($burger-offset + 20px));
 		transition: transform 1s, background-color 1s;
 	}
 

@@ -13,7 +13,10 @@ const ListBox = (props: any) => {
 				<h2 className={styles['list-title']}>{props.title}</h2>
 				<img
 					className={`${styles['list-arrow']} ${isListOpen ? styles['list-arrow_open'] : ''}`}
-					src='/img/arrow.svg' alt=""
+					width={18}
+					height={18}
+					src='/img/arrow.svg'
+					alt=""
 				/>
 			</summary>
 

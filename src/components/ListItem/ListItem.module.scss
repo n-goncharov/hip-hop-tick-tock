@@ -1,0 +1,23 @@
+.list-item {
+	display: flex;
+	gap: 40px;
+	justify-content: space-between;
+	white-space: nowrap;
+	align-items: center;
+	width: 100%;
+	height: 70px;
+	background-color: #fff;
+	padding: 0 15px;
+	box-sizing: border-box;
+
+	.btns-container {
+		display: flex;
+		justify-content: center;
+		gap: 15px;
+	}
+
+	&__title {
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+}

@@ -1,16 +1,21 @@
 .btn {
 	box-sizing: border-box;
 	border: none;
-	width: 186px;
+	width: 180px;
 	height: 33px;
 	display: flex;
 	align-items: center;
-	gap: 19px;
+	justify-content: flex-start;
+	gap: 20px;
 	padding-left: 15px;
-	padding-right: 40px;
 	font-size: 20px;
+	cursor: pointer;
 
-	.btn__img {
+	&:hover {
+		background-color: #ccc;
+	}
+
+	&__img {
 		width: 19px;
 		height: 16px;
 	}

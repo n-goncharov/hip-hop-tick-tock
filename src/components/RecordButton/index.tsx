@@ -6,7 +6,7 @@ const RecordButton = () => {
 	}
 
 	return (
-		<Button title='записать' onClick={handlerClick} />
+		<Button title='записать' name='record-button.png' onClick={handlerClick} />
 	);
 }
 

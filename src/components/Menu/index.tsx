@@ -36,13 +36,19 @@ const Menu = ({ isMenuActive }: any) => {
 		<aside className={`${styles.menu} ${isMenuActive ? styles.menu_active : ''}`}>
 			<ChangeTheme />
 
-			<ListBox title='Мои таймеры' buttons={<AddTimerButton />}>
+			<ListBox
+				title='Мои таймеры'
+				buttons={<AddTimerButton />}
+			>
 				{timerList.map(timer => (
 					<TimerItem key={timer.id} id={timer.id} title={timer.title} handleRemove={handleRemoveTimer} />
 				))}
 			</ListBox>
 
-			<ListBox title='Библиотека треков' buttons={[<AddTrackButton key='add-track-button' />, <RecordButton key='record-button' />]}>
+			<ListBox
+				title='Библиотека треков'
+				buttons={[<AddTrackButton key='add-track-button' />, <RecordButton key='record-button' />]}
+			>
 				{trackList.map(track => (
 					<TrackItem key={track.id} id={track.id} title={track.title} handleRemove={handleRemoveTrack} />
 				))}

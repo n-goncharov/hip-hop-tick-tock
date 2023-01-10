@@ -21,8 +21,10 @@
 	}
 
 	.list-arrow {
-		transform: rotateZ(180deg);
+		transition: transform 0.3s;
+
+		&_open {
+			transform: rotateZ(180deg);
+		}
 	}
 }
-
-

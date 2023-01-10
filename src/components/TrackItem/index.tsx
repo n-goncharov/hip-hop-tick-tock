@@ -1,12 +1,8 @@
+import ListItem from "../ListItem";
+
 const TrackItem = (props: any) => {
 	return (
-		<li>
-			<div>
-				{props.title}
-				<button></button>
-				<button></button>
-			</div>
-		</li>
+		<ListItem title={props.title} id={props.id} handleRemove={props.handleRemove} />
 	);
 }
 

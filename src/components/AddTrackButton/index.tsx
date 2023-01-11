@@ -6,7 +6,7 @@ const AddTrackButton = () => {
 	}
 
 	return (
-		<Button title='добавить' name='add-button.png' onClick={handlerClick} />
+		<Button title='добавить' name='add.png' onClick={handlerClick} />
 	);
 }
 

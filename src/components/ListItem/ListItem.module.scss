@@ -10,7 +10,7 @@
 	padding: 0 15px;
 	box-sizing: border-box;
 
-	.btns-container {
+	.buttons-container {
 		display: flex;
 		justify-content: center;
 		gap: 15px;
@@ -19,5 +19,11 @@
 	&__title {
 		text-overflow: ellipsis;
 		overflow: hidden;
+	}
+
+	&__edit-button, &__delete-button {
+		cursor: pointer;
+		border: none;
+		background-color: rgba(1, 1, 1, 0);
 	}
 }

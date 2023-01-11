@@ -15,12 +15,12 @@ const ListBox = (props: any) => {
 					className={`${styles['list-arrow']} ${isListOpen ? styles['list-arrow_open'] : ''}`}
 					width={18}
 					height={18}
-					src='/img/arrow.svg'
+					src='/img/arrow.png'
 					alt=""
 				/>
 			</summary>
 
-			<div className={styles['btns-container']}>{props.buttons}</div>
+			<div className={styles['buttons-container']}>{props.buttons}</div>
 
 			<ul className={styles.list}>
 				{props.children}

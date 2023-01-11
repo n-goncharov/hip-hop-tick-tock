@@ -41,7 +41,12 @@ const Menu = ({ isMenuActive }: any) => {
 				buttons={<AddTimerButton />}
 			>
 				{timerList.map(timer => (
-					<TimerItem key={timer.id} id={timer.id} title={timer.title} handleRemove={handleRemoveTimer} />
+					<TimerItem
+						key={timer.id}
+						id={timer.id}
+						title={timer.title}
+						handleRemove={handleRemoveTimer}
+					/>
 				))}
 			</ListBox>
 
@@ -50,7 +55,12 @@ const Menu = ({ isMenuActive }: any) => {
 				buttons={[<AddTrackButton key='add-track-button' />, <RecordButton key='record-button' />]}
 			>
 				{trackList.map(track => (
-					<TrackItem key={track.id} id={track.id} title={track.title} handleRemove={handleRemoveTrack} />
+					<TrackItem
+						key={track.id}
+						id={track.id}
+						title={track.title}
+						handleRemove={handleRemoveTrack}
+					/>
 				))}
 			</ListBox>
 		</aside>

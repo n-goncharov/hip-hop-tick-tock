@@ -6,8 +6,14 @@ const Header = ({ isMenuActive, setMenuStatus }: any) => {
 			<h1 className={styles['app-name']}>HipHopTickTock</h1>
 			<button
 				className={`${styles.burger} ${isMenuActive ? styles['burger_active'] : ''}`}
-				onClick={() => setMenuStatus(!isMenuActive)}>
-				<img width={25} height={35} src="/img/burger-menu.svg" alt="" />
+				onClick={() => setMenuStatus(!isMenuActive)}
+			>
+				<img
+					width={25}
+					height={35}
+					src="/img/burger-button.svg"
+					alt=""
+				/>
 			</button>
 		</header>
 	);

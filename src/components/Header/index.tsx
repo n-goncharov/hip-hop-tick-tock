@@ -11,7 +11,7 @@ const Header = ({ isMenuActive, setMenuStatus }: any) => {
 				<img
 					width={25}
 					height={35}
-					src="/img/burger-button.svg"
+					src="/img/burger.svg"
 					alt=""
 				/>
 			</button>

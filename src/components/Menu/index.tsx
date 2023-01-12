@@ -1,4 +1,4 @@
-import styles from './Menu.module.scss'
+import styles from './Menu.module.scss';
 import ChangeTheme from '../ChangeTheme';
 import ListBox from '../ListBox';
 import AddTrackButton from '../AddTrackButton';
@@ -8,7 +8,7 @@ import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
 import { useState } from 'react';
 
-const Menu = ({ isMenuActive }: any) => {
+const Menu = ({ isMenuActive, showTrackModal, showTimerModal }: any) => {
 	const timers = [
 		{ id: '1', title: 'Утро', src: 'ссылка на аудио' },
 		{ id: '2', title: 'Похавать', src: 'ссылка на аудио' },
@@ -38,7 +38,7 @@ const Menu = ({ isMenuActive }: any) => {
 
 			<ListBox
 				title='Мои таймеры'
-				buttons={<AddTimerButton />}
+				buttons={<AddTimerButton showModal={showTimerModal} />}
 			>
 				{timerList.map(timer => (
 					<TimerItem
@@ -52,7 +52,7 @@ const Menu = ({ isMenuActive }: any) => {
 
 			<ListBox
 				title='Библиотека треков'
-				buttons={[<AddTrackButton key='add-track-button' />, <RecordButton key='record-button' />]}
+				buttons={[<AddTrackButton key='add-track-button' />, <RecordButton key='record-button' showModal={showTrackModal} />]}
 			>
 				{trackList.map(track => (
 					<TrackItem

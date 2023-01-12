@@ -1,12 +1,9 @@
 import Button from "../Button";
 
-const RecordButton = () => {
-	const handlerClick = () => {
-		console.log('нажал записать');
-	}
+const RecordButton = ({isModalOpen, showModal}: any) => {
 
 	return (
-		<Button title='записать' name='record.png' onClick={handlerClick} />
+		<Button title='записать' name='record.png' isModalOpen={isModalOpen} showModal={showModal} />
 	);
 }
 

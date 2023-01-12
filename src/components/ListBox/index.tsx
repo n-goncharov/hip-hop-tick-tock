@@ -1,4 +1,4 @@
-import styles from './ListBox.module.scss'
+import styles from './ListBox.module.scss';
 import { useState } from "react";
 
 const ListBox = (props: any) => {

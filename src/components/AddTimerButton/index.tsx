@@ -1,12 +1,8 @@
 import Button from "../Button";
 
-const AddTimerButton = () => {
-	const handlerClick = () => {
-		console.log('нажал добавить таймер');
-	}
-
+const AddTimerButton = ({showModal}: any) => {
 	return (
-		<Button title='добавить' name='add.png' onClick={handlerClick} />
+		<Button title='добавить' name='add.png' showModal={showModal} />
 	);
 }
 

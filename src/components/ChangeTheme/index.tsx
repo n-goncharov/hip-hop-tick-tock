@@ -1,4 +1,4 @@
-import styles from './ChangeTheme.module.scss'
+import styles from './ChangeTheme.module.scss';
 
 function ChangeTheme() {
 	return (

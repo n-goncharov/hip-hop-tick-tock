@@ -16,8 +16,8 @@
 	padding: 40px;
 	transform: translateX(100%);
 	transition: transform 1s;
-}
 
-.menu_active {
-	transform: translateX(0);
+	&Active {
+		transform: translateX(0);
+	}
 }

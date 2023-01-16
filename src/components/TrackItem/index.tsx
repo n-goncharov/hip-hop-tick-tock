@@ -1,8 +1,12 @@
 import ListItem from "../ListItem";
 
-const TrackItem = (props: any) => {
+const TrackItem = ({ title, id, handleRemove }: any) => {
 	return (
-		<ListItem title={props.title} id={props.id} handleRemove={props.handleRemove} />
+		<ListItem
+			title={title}
+			id={id}
+			handleRemove={handleRemove}
+		/>
 	);
 }
 

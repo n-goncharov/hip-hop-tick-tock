@@ -1,18 +1,19 @@
 import styles from './ListBox.module.scss';
+import cn from "classnames";
 import { useState } from "react";
 
-const ListBox = (props: any) => {
+const ListBox = ({ title, buttons, children }: any) => {
 	const [isListOpen, setListStatus] = useState(false);
 
 	return (
-		<details className={styles['list-box']} >
+		<details>
 			<summary
 				className={styles.summary}
 				onClick={() => setListStatus(!isListOpen)}
 			>
-				<h2 className={styles['list-title']}>{props.title}</h2>
+				<h2 className={styles.title}>{title}</h2>
 				<img
-					className={`${styles['list-arrow']} ${isListOpen ? styles['list-arrow_open'] : ''}`}
+					className={cn(styles.arrow, { [styles.arrowOpen]: isListOpen })}
 					width={18}
 					height={18}
 					src='/img/arrow.png'
@@ -20,10 +21,12 @@ const ListBox = (props: any) => {
 				/>
 			</summary>
 
-			<div className={styles['buttons-container']}>{props.buttons}</div>
+			<div className={styles.buttonsContainer}>
+				{buttons}
+			</div>
 
 			<ul className={styles.list}>
-				{props.children}
+				{children}
 			</ul>
 		</details>
 	);

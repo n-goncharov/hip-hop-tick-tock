@@ -8,29 +8,25 @@
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(1, 1, 1, 0.7);
+}
 
-	&__content {
-		width: 655px;
-		height: 555px;
-		background-color: #fff;
-		// display: flex;
-		// flex-direction: column;
-		// gap: 45px;
+.content {
+	width: 655px;
+	height: 555px;
+	background-color: #fff;
+	display: grid;
+	grid-template-rows: 40px 40px 1fr 50px;
+	padding: 45px;
+}
 
-		display: grid;
-	  grid-template-rows: 40px 40px 1fr 50px;
-		padding: 45px;
-	}
+.title {
+	text-align: center;
+}
 
-	&__title {
-		text-align: center;
-	}
-
-	.buttons-container {
-		display: flex;
-		justify-content: center;
-		gap: 240px;
-		margin-top: auto;
-		margin-bottom: auto;
-	}
+.buttonsContainer {
+	display: flex;
+	justify-content: center;
+	gap: 240px;
+	margin-top: auto;
+	margin-bottom: auto;
 }

@@ -1,4 +1,5 @@
 import styles from './Menu.module.scss';
+import cn from "classnames";
 import ChangeTheme from '../ChangeTheme';
 import ListBox from '../ListBox';
 import AddTrackButton from '../AddTrackButton';
@@ -33,7 +34,8 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal }: any) => {
 	}
 
 	return (
-		<aside className={`${styles.menu} ${isMenuActive ? styles.menu_active : ''}`}>
+		<aside className={cn(styles.menu, { [styles.menuActive]: isMenuActive })}>
+
 			<ChangeTheme />
 
 			<ListBox
@@ -52,7 +54,15 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal }: any) => {
 
 			<ListBox
 				title='Библиотека треков'
-				buttons={[<AddTrackButton key='add-track-button' />, <RecordButton key='record-button' showModal={showTrackModal} />]}
+				buttons={
+					[
+						<AddTrackButton key='add-track-button' />,
+						<RecordButton
+							key='record-button'
+							showModal={showTrackModal}
+						/>
+					]
+				}
 			>
 				{trackList.map(track => (
 					<TrackItem

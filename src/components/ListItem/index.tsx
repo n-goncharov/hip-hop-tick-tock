@@ -1,13 +1,13 @@
 import styles from './ListItem.module.scss';
 
-const ListItem = (props: any) => {
+const ListItem = ({ title, id, handleRemove }: any) => {
 	return (
-		<li className={styles['list-item']}>
-			<h3 className={styles['list-item__title']}>{props.title}</h3>
-			<div className={styles['buttons-container']}>
+		<li className={styles.listItem}>
+			<h3 className={styles.title}>{title}</h3>
+			<div className={styles.buttonsContainer}>
 				<input
 					type="image"
-					className={styles['list-item__edit-button']}
+					className={styles.button}
 					width={18}
 					height={18}
 					src="/img/list-item-edit.svg"
@@ -15,11 +15,11 @@ const ListItem = (props: any) => {
 				/>
 				<input
 					type="image"
-					className={styles['list-item__delete-button']}
+					className={styles.button}
 					src="/img/list-item-delete.svg"
 					alt=""
-					id={props.id}
-					onClick={props.handleRemove}
+					id={id}
+					onClick={handleRemove}
 				/>
 			</div>
 		</li>

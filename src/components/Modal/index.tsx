@@ -6,11 +6,21 @@ const Modal = ({ title, isModalOpen, closeModal, children }: any) => {
 	}
 
 	return (
-		<div className={styles.modal} onClick={closeModal}>
-			<div className={styles['modal__content']} onClick={e => e.stopPropagation()}>
-				<h2 className={styles['modal__title']}>{title}</h2>
+		<div
+			className={styles.modal}
+			onClick={closeModal}
+		>
+			<div
+				className={styles.content}
+				onClick={e => e.stopPropagation()}
+			>
+				<h2 className={styles.title}>
+					{title}
+				</h2>
+
 				{children}
-				<div className={styles['buttons-container']}>
+
+				<div className={styles.buttonsContainer}>
 					<input
 						type="image"
 						width={49}

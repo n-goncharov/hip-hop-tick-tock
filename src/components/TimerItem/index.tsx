@@ -1,8 +1,12 @@
 import ListItem from "../ListItem";
 
-const TimerItem = (props: any) => {
+const TimerItem = ({ title, id, handleRemove }: any) => {
 	return (
-		<ListItem title={props.title} id={props.id} handleRemove={props.handleRemove} />
+		<ListItem
+			title={title}
+			id={id}
+			handleRemove={handleRemove}
+		/>
 	);
 }
 

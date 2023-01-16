@@ -1,11 +1,12 @@
 import styles from './Header.module.scss';
+import cn from "classnames";
 
 const Header = ({ isMenuActive, setMenuStatus }: any) => {
 	return (
 		<header className={styles.header}>
-			<h1 className={styles['app-name']}>HipHopTickTock</h1>
+			<h1 className={styles.appName}>HipHopTickTock</h1>
 			<button
-				className={`${styles.burger} ${isMenuActive ? styles['burger_active'] : ''}`}
+				className={cn(styles.burger, { [styles.burgerActive]: isMenuActive })}
 				onClick={() => setMenuStatus(!isMenuActive)}
 			>
 				<img

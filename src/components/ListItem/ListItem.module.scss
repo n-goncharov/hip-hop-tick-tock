@@ -1,4 +1,4 @@
-.list-item {
+.listItem {
 	display: flex;
 	gap: 40px;
 	justify-content: space-between;
@@ -9,21 +9,21 @@
 	background-color: #fff;
 	padding: 0 15px;
 	box-sizing: border-box;
+}
 
-	.buttons-container {
-		display: flex;
-		justify-content: center;
-		gap: 15px;
-	}
+.title {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 
-	&__title {
-		text-overflow: ellipsis;
-		overflow: hidden;
-	}
+.buttonsContainer {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
 
-	&__edit-button, &__delete-button {
-		cursor: pointer;
-		border: none;
-		background-color: rgba(1, 1, 1, 0);
-	}
+.button {
+	cursor: pointer;
+	border: none;
+	background-color: rgba(1, 1, 1, 0);
 }

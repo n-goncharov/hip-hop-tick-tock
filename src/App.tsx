@@ -11,10 +11,28 @@ const App = () => {
 
   return (
     <>
-      <Header isMenuActive={isMenuActive} setMenuStatus={setMenuStatus} />
-      <Main isMenuActive={isMenuActive} showTrackModal={() => setTrackModalOpen(true)} showTimerModal={() => setTimerModalOpen(true)}/>
-      <AddTimerModal isModalOpen={isTimerModalOpen} closeModal={() => setTimerModalOpen(false)} title='Выставить новый таймер'/>
-      <RecordTrackModal isModalOpen={isTrackModalOpen} closeModal={() => setTrackModalOpen(false)} title='Записать свой звук' />
+      <Header
+        isMenuActive={isMenuActive}
+        setMenuStatus={setMenuStatus}
+      />
+
+      <Main
+        isMenuActive={isMenuActive}
+        showTrackModal={() => setTrackModalOpen(true)}
+        showTimerModal={() => setTimerModalOpen(true)}
+      />
+
+      <AddTimerModal
+        isModalOpen={isTimerModalOpen}
+        closeModal={() => setTimerModalOpen(false)}
+        title='Выставить новый таймер'
+      />
+
+      <RecordTrackModal
+        isModalOpen={isTrackModalOpen}
+        closeModal={() => setTrackModalOpen(false)}
+        title='Записать свой звук'
+      />
     </>
   );
 }

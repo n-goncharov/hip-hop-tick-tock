@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddTimerModal from "./components/AddTimerModal";
-import Header from './components/Header'
+import Header from './components/Header';
 import Main from './components/Main';
 import RecordTrackModal from "./components/RecordTrackModal";
 

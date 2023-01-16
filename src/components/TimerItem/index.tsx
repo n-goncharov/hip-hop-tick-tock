@@ -1,6 +1,6 @@
 import ListItem from "../ListItem";
 
-const TimerItem = ({ title, id, handleRemove }: any) => {
+const TimerItem = ({ id, title, handleRemove }: any) => {
 	return (
 		<ListItem
 			title={title}

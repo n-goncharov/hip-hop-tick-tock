@@ -10,7 +10,7 @@ const TrackItem = ({ id, title, src, handleRemove }: any) => {
 					id={id}
 					handleRemove={handleRemove}
 				/>
-				<audio className={styles.audio} src={src} controls></audio>
+				<audio className={styles.audio} src={src} controls ></audio>
 			</div>
 		</>
 	);

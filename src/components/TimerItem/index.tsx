@@ -1,12 +1,12 @@
 import ListItem from "../ListItem";
 
-const TimerItem = ({ id, title, updateTimerList, showModal }: any) => {
+const TimerItem = ({ id, title, setTimerList }: any) => {
 	const handleEditTimer = () => {
-		//showModal();
+
 	}
 
 	const handleRemoveTimer = (e: any) => {
-		updateTimerList((timerList: any[]) => {
+		setTimerList((timerList: any[]) => {
 			const openRequest = indexedDB.open("db", 1);
 
 			openRequest.onsuccess = () => {
@@ -23,8 +23,8 @@ const TimerItem = ({ id, title, updateTimerList, showModal }: any) => {
 
 	return (
 		<ListItem
-			title={title}
 			id={id}
+			title={title}
 			handleEdit={handleEditTimer}
 			handleRemove={handleRemoveTimer}
 		/>

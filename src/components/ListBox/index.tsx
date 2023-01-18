@@ -9,7 +9,7 @@ const ListBox = ({ title, buttons, children }: any) => {
 		<details>
 			<summary
 				className={styles.summary}
-				onClick={() => setListStatus(!isListOpen)}
+				onClick={() => setListStatus((isListOpen) => !isListOpen)}
 			>
 				<h2 className={styles.title}>{title}</h2>
 				<img

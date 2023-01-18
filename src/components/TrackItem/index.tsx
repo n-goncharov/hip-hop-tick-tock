@@ -1,9 +1,9 @@
 import styles from './Track.module.scss'
 import ListItem from "../ListItem";
 
-const TrackItem = ({ id, title, src, updateTrackList }: any) => {
+const TrackItem = ({ id, title, src, setTrackList }: any) => {
 	const handleRemoveTrack = (e: any) => {
-		updateTrackList((trackList: any[]) => {
+		setTrackList((trackList: any[]) => {
 			const openRequest = indexedDB.open("db", 1);
 
 			openRequest.onsuccess = () => {
@@ -26,7 +26,11 @@ const TrackItem = ({ id, title, src, updateTrackList }: any) => {
 					id={id}
 					handleRemove={handleRemoveTrack}
 				/>
-				<audio className={styles.audio} src={src} controls ></audio>
+				<audio
+					className={styles.audio}
+					src={src}
+					controls
+				/>
 			</div>
 		</>
 	);

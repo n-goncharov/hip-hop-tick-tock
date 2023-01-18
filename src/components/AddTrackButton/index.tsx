@@ -1,4 +1,4 @@
-const AddTrackButton = ({ trackList, updateTrackList }: any) => {
+const AddTrackButton = ({ setTrackList }: any) => {
 	const handleAddTrack = (e: any) => {
 		const file = e.target.files[0];
 
@@ -30,7 +30,7 @@ const AddTrackButton = ({ trackList, updateTrackList }: any) => {
 					console.log('Ошибка', request.error);
 				};
 
-				updateTrackList([...trackList, track]);
+				setTrackList((trackList: any) => [...trackList, track]);
 			};
 		};
 
@@ -39,7 +39,11 @@ const AddTrackButton = ({ trackList, updateTrackList }: any) => {
 	}
 
 	return (
-		<input type="file" accept="audio/*" onChange={handleAddTrack} />
+		<input
+			type="file"
+			accept="audio/*"
+			onChange={handleAddTrack}
+		/>
 	);
 }
 

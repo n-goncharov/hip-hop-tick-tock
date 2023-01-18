@@ -2,7 +2,7 @@ import styles from './Main.module.scss';
 import Clock from "../Clock";
 import Menu from "../Menu";
 
-const Main = ({ isMenuActive, showTrackModal, showTimerModal, timerList, updateTimerList }: any) => {
+const Main = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTimerList }: any) => {
 	return (
 		<main className={styles.main}>
 			<Clock />
@@ -11,7 +11,7 @@ const Main = ({ isMenuActive, showTrackModal, showTimerModal, timerList, updateT
 				showTrackModal={showTrackModal}
 				showTimerModal={showTimerModal}
 				timerList={timerList}
-				updateTimerList={updateTimerList}
+				setTimerList={setTimerList}
 			/>
 		</main>
 	);

@@ -2,41 +2,39 @@ import styles from './AddTimerModal.module.scss';
 import Modal from "../Modal";
 import { useState } from 'react';
 
-const AddTimerModal = ({ title, isModalOpen, closeModal, timerList, updateTimerList }: any) => {
+const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList }: any) => {
 	const [timerName, setTimerName] = useState('');
 	const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
 
 	const handleAddTimer = () => {
-    const openRequest = indexedDB.open("db", 1);
+		const openRequest = indexedDB.open("db", 1);
 
-    openRequest.onsuccess = () => {
-      const db = openRequest.result;
-      const transaction = db.transaction('timers', 'readwrite');
-      const timers = transaction.objectStore('timers');
+		openRequest.onsuccess = () => {
+			const db = openRequest.result;
+			const transaction = db.transaction('timers', 'readwrite');
+			const timers = transaction.objectStore('timers');
 
-      const timer = {
+			const timer = {
 				id: timerName,
 				title: timerName,
 				track_id: ''
 			};
 
-      const request = timers.add(timer);
+			const request = timers.add(timer);
 
-      request.onsuccess = () => {
-        console.log('Timer добавлен в хранилище', request.result);
-      };
+			request.onsuccess = () => {
+				console.log('Timer добавлен в хранилище', request.result);
+			};
 
-      request.onerror = () => {
-        console.log('Ошибка', request.error);
-      };
+			request.onerror = () => {
+				console.log('Ошибка', request.error);
+			};
 
-      updateTimerList([...timerList, timer]);
-    };
+			setTimerList((timerList: any) => [...timerList, timer]);
+		};
 
 		closeModal();
-  };
-
-	console.log(timerList);
+	};
 
 	return (
 		<Modal

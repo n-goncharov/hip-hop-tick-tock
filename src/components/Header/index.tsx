@@ -7,7 +7,7 @@ const Header = ({ isMenuActive, setMenuStatus }: any) => {
 			<h1 className={styles.appName}>HipHopTickTock</h1>
 			<button
 				className={cn(styles.burger, { [styles.burgerActive]: isMenuActive })}
-				onClick={() => setMenuStatus(!isMenuActive)}
+				onClick={setMenuStatus}
 			>
 				<img
 					width={25}

@@ -9,8 +9,8 @@ import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
 import { useEffect, useState } from 'react';
 
-const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, updateTimerList }: any) => {
-	const [trackList, updateTrackList] = useState<{ id: string, title: string, src: string | ArrayBuffer | null }[]>([]);
+const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTimerList }: any) => {
+	const [trackList, setTrackList] = useState<{ id: string, title: string, src: string | ArrayBuffer | null }[]>([]);
 
 	useEffect(() => {
 		const openRequest = indexedDB.open("db", 1);
@@ -35,13 +35,13 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, updateT
 			const tracks = transactionTrack.objectStore("tracks");
 			const requestTracks = tracks.getAll();
 			requestTracks.onsuccess = () => {
-				updateTrackList(requestTracks.result);
+				setTrackList(requestTracks.result);
 			}
 
 			const timers = transactionTimer.objectStore("timers");
 			const requestTimers = timers.getAll();
 			requestTimers.onsuccess = () => {
-				updateTimerList(requestTimers.result);
+				setTimerList(requestTimers.result);
 			}
 		}
 	}, []);
@@ -57,12 +57,12 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, updateT
 					<AddTimerButton showModal={showTimerModal} />
 				}
 			>
-				{timerList.map((timer: { id: any; title: any; }) => (
+				{timerList.map((timer: { id: string, title: string, track_id: string }) => (
 					<TimerItem
 						key={timer.id}
 						id={timer.id}
 						title={timer.title}
-						updateTimerList={updateTimerList}
+						setTimerList={setTimerList}
 						showModal={showTimerModal}
 					/>
 				))}
@@ -74,7 +74,7 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, updateT
 					[
 						<AddTrackButton
 							key='add-track-button'
-							updateTrackList={updateTrackList}
+							setTrackList={setTrackList}
 						/>,
 						<RecordButton
 							key='record-button'
@@ -89,7 +89,7 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, updateT
 						id={track.id}
 						title={track.title}
 						src={track.src}
-						updateTrackList={updateTrackList}
+						setTrackList={setTrackList}
 					/>
 				))}
 			</ListBox>

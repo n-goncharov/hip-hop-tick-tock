@@ -1,6 +1,6 @@
 import styles from "./Clock.module.scss"
 
-const Clock = (props: any) => {
+const Clock = () => {
 	return (
 		<div></div>
 	);

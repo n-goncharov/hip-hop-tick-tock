@@ -1,12 +1,11 @@
 import Button from "../Button";
 
-const RecordButton = ({ isModalOpen, showModal }: any) => {
+const RecordButton = ({ showModal }: any) => {
 
 	return (
 		<Button
 			title='записать'
 			name='record.png'
-			isModalOpen={isModalOpen}
 			showModal={showModal}
 		/>
 	);

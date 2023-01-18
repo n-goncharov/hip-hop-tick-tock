@@ -1,6 +1,6 @@
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ title, id, handleEdit, handleRemove }: any) => {
+const ListItem = ({ id, title, handleEdit, handleRemove }: any) => {
 	return (
 		<li className={styles.listItem}>
 			<h3 className={styles.title}>{title}</h3>

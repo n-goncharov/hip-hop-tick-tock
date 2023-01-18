@@ -19,22 +19,6 @@ const Modal = ({ title, isModalOpen, closeModal, children }: any) => {
 				</h2>
 
 				{children}
-
-				<div className={styles.buttonsContainer}>
-					<input
-						type="image"
-						width={49}
-						height={49}
-						src='/img/accept-modal.png'
-					/>
-					<input
-						type="image"
-						width={49}
-						height={49}
-						src='/img/close-modal.png'
-						onClick={closeModal}
-					/>
-				</div>
 			</div>
 		</div>
 	);

@@ -8,6 +8,7 @@ const App = () => {
   const [isMenuActive, setMenuStatus] = useState(false);
   const [isTrackModalOpen, setTrackModalOpen] = useState(false);
   const [isTimerModalOpen, setTimerModalOpen] = useState(false);
+  const [timerList, updateTimerList] = useState<{ id: string, title: string, audio_id: string }[]>([]);
 
   return (
     <>
@@ -20,12 +21,16 @@ const App = () => {
         isMenuActive={isMenuActive}
         showTrackModal={() => setTrackModalOpen(true)}
         showTimerModal={() => setTimerModalOpen(true)}
+        timerList={timerList}
+        updateTimerList={updateTimerList}
       />
 
       <AddTimerModal
         isModalOpen={isTimerModalOpen}
         closeModal={() => setTimerModalOpen(false)}
         title='Выставить новый таймер'
+        timerList={timerList}
+        updateTimerList={updateTimerList}
       />
 
       <RecordTrackModal

@@ -1,6 +1,6 @@
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ title, id, handleRemove }: any) => {
+const ListItem = ({ title, id, handleEdit, handleRemove }: any) => {
 	return (
 		<li className={styles.listItem}>
 			<h3 className={styles.title}>{title}</h3>
@@ -11,6 +11,7 @@ const ListItem = ({ title, id, handleRemove }: any) => {
 					width={18}
 					height={18}
 					src="/img/list-item-edit.svg"
+					onClick={handleEdit}
 					alt=""
 				/>
 				<input

@@ -1,0 +1,15 @@
+.timerForm {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.timerDate {
+	height: 30px;
+}
+
+.buttonsContainer {
+	display: flex;
+	justify-content: center;
+	gap: 240px;
+}

@@ -2,9 +2,10 @@ import styles from './AddTimerModal.module.scss';
 import Modal from "../Modal";
 import { useState } from 'react';
 
-const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList }: any) => {
-	const [timerName, setTimerName] = useState('');
+const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList, trackList }: any) => {
+	const [timerName, setTimerName] = useState<string>('');
 	const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
+	const [trackId, setTrackId] = useState<string>('');
 
 	const handleAddTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
@@ -17,7 +18,7 @@ const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList }: any) =>
 			const timer = {
 				id: timerName,
 				title: timerName,
-				track_id: ''
+				track_id: trackId
 			};
 
 			const request = timers.add(timer);
@@ -51,6 +52,7 @@ const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList }: any) =>
 					placeholder="Введите название таймера"
 					onChange={(e) => setTimerName(e.target.value)}
 				/>
+
 				<input
 					id='timerDate'
 					value={timerDate}
@@ -58,6 +60,19 @@ const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList }: any) =>
 					type="datetime-local"
 					onChange={(e) => setTimerDate(e.target.value)}
 				/>
+
+				{trackList.map((track: any) => (
+					<label key={track.id}>
+						<input
+							type="radio"
+							value={track.id}
+							checked={trackId === track.id}
+							onChange={(e) => setTrackId(e.target.value)}
+						/>
+						{track.id}
+					</label>
+				))}
+
 				<div className={styles.buttonsContainer}>
 					<input
 						type="image"
@@ -66,6 +81,7 @@ const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList }: any) =>
 						src='/img/accept-modal.png'
 						onClick={handleAddTimer}
 					/>
+
 					<input
 						type="image"
 						width={49}

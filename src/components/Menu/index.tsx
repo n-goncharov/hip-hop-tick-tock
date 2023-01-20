@@ -7,45 +7,8 @@ import RecordButton from '../RecordButton';
 import TrackItem from '../TrackItem';
 import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
-import { useEffect, useState } from 'react';
 
-const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTimerList }: any) => {
-	const [trackList, setTrackList] = useState<{ id: string, title: string, src: string | ArrayBuffer | null }[]>([]);
-
-	useEffect(() => {
-		const openRequest = indexedDB.open("db", 1);
-
-		openRequest.onupgradeneeded = () => {
-			const db = openRequest.result;
-
-			if (!db.objectStoreNames.contains('tracks')) {
-				db.createObjectStore('tracks', { keyPath: 'id' });
-			}
-
-			if (!db.objectStoreNames.contains('timers')) {
-				db.createObjectStore('timers', { keyPath: 'id' });
-			}
-		};
-
-		openRequest.onsuccess = () => {
-			const db = openRequest.result;
-			const transactionTrack = db.transaction("tracks", "readwrite");
-			const transactionTimer = db.transaction("timers", "readwrite");
-
-			const tracks = transactionTrack.objectStore("tracks");
-			const requestTracks = tracks.getAll();
-			requestTracks.onsuccess = () => {
-				setTrackList(requestTracks.result);
-			}
-
-			const timers = transactionTimer.objectStore("timers");
-			const requestTimers = timers.getAll();
-			requestTimers.onsuccess = () => {
-				setTimerList(requestTimers.result);
-			}
-		}
-	}, []);
-
+const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTimerList, trackList, setTrackList }: any) => {
 	return (
 		<aside className={cn(styles.menu, { [styles.menuActive]: isMenuActive })}>
 
@@ -57,7 +20,7 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTime
 					<AddTimerButton showModal={showTimerModal} />
 				}
 			>
-				{timerList.map((timer: { id: string, title: string, track_id: string }) => (
+				{timerList.map((timer: any) => (
 					<TimerItem
 						key={timer.id}
 						id={timer.id}
@@ -83,7 +46,7 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTime
 					]
 				}
 			>
-				{trackList.map((track) => (
+				{trackList.map((track: any) => (
 					<TrackItem
 						key={track.id}
 						id={track.id}

@@ -1,35 +1,18 @@
-.title {
-	display: inline;
-}
-
-.buttonsContainer {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	gap: 20px;
-	margin-bottom: 20px;
-}
-
 .summary {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	cursor: pointer;
 	list-style: none;
-	background: #F9F9F9;
+	background: rgba($color: #000000, $alpha: 0.0);
 	border-bottom: 1px solid #C8C8C8;
 	height: 73px;
 	margin-bottom: 20px;
 	padding: 0 15px;
 }
 
-.list {
-	list-style: none;
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	margin: 0;
+.title {
+	display: inline;
 }
 
 .arrow {
@@ -40,6 +23,19 @@
 	}
 }
 
-.listBox[open] {
-	transition: all 3s;
+.buttonsContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 20px;
+	margin-bottom: 20px;
+}
+
+.list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 0;
 }

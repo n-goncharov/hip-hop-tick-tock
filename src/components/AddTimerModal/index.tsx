@@ -44,36 +44,36 @@ const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList, trackList
 			closeModal={closeModal}
 			className={styles.modal}
 		>
-			<div className={styles.timerForm}>
-				<input
-					id='timerName'
-					value={timerName}
-					type="text"
-					placeholder="Введите название таймера"
-					onChange={(e) => setTimerName(e.target.value)}
-				/>
+			<div className={styles.addTimerModal}>
+				<div className={styles.content}>
+					<input
+						id='timerName'
+						value={timerName}
+						type="text"
+						placeholder="Введите название таймера"
+						onChange={(e) => setTimerName(e.target.value)}
+					/>
+					<input
+						id='timerDate'
+						value={timerDate}
+						className={styles.date}
+						type="datetime-local"
+						onChange={(e) => setTimerDate(e.target.value)}
+					/>
+					{trackList.map((track: any) => (
+						<label key={track.id}>
+							<input
+								type="radio"
+								value={track.id}
+								checked={trackId === track.id}
+								onChange={(e) => setTrackId(e.target.value)}
+							/>
+							{track.id}
+						</label>
+					))}
+				</div>
 
-				<input
-					id='timerDate'
-					value={timerDate}
-					className={styles.timerDate}
-					type="datetime-local"
-					onChange={(e) => setTimerDate(e.target.value)}
-				/>
-
-				{trackList.map((track: any) => (
-					<label key={track.id}>
-						<input
-							type="radio"
-							value={track.id}
-							checked={trackId === track.id}
-							onChange={(e) => setTrackId(e.target.value)}
-						/>
-						{track.id}
-					</label>
-				))}
-
-				<div className={styles.buttonsContainer}>
+				<div className={styles.buttons}>
 					<input
 						type="image"
 						width={49}

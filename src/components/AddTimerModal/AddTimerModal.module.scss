@@ -1,15 +1,24 @@
-.timerForm {
+.addTimerModal {
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 20px;
+	height: 100%;
 }
 
-.timerDate {
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	flex: 1;
+}
+
+.date {
 	height: 30px;
 }
 
-.buttonsContainer {
+.buttons {
 	display: flex;
 	justify-content: center;
 	gap: 240px;
+	margin-top: auto;
 }

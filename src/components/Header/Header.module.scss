@@ -14,7 +14,7 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	box-sizing: border-box;
 }
 
-.appName {
+.title {
 	font-size: 30px;
 	font-weight: normal;
 	color: #007BB0;

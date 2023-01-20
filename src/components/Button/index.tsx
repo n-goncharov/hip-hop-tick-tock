@@ -7,7 +7,7 @@ const Button = ({ title, name, showModal }: any) => {
 			onClick={showModal}
 		>
 			<img
-				className={styles.buttonImg}
+				className={styles.img}
 				src={`/img/${name}`}
 				alt=""
 			/>

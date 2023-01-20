@@ -1,5 +1,5 @@
-import styles from './Track.module.scss'
-import ListItem from "../ListItem";
+import styles from './TrackItem.module.scss'
+import ListItem from "../ListItemContent";
 
 const TrackItem = ({ id, title, src, setTrackList }: any) => {
 	const handleRemoveTrack = (e: any) => {
@@ -20,7 +20,7 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 
 	return (
 		<>
-			<div className={styles.track}>
+			<li className={styles.trackItem}>
 				<ListItem
 					title={title}
 					id={id}
@@ -31,7 +31,7 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 					src={src}
 					controls
 				/>
-			</div>
+			</li>
 		</>
 	);
 }

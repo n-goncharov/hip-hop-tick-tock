@@ -9,7 +9,7 @@ const RecordTrackModal = ({ title, isModalOpen, closeModal }: any) => {
 			closeModal={closeModal}
 		>
 			<input type="text" />
-			<div className={styles.buttonsContainer}>
+			<div className={styles.buttons}>
 					<input
 						type="image"
 						width={49}

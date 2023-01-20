@@ -4,7 +4,7 @@ import cn from "classnames";
 const Header = ({ isMenuActive, setMenuStatus }: any) => {
 	return (
 		<header className={styles.header}>
-			<h1 className={styles.appName}>HipHopTickTock</h1>
+			<h1 className={styles.title}>HipHopTickTock</h1>
 			<button
 				className={cn(styles.burger, { [styles.burgerActive]: isMenuActive })}
 				onClick={setMenuStatus}

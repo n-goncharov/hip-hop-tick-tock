@@ -1,4 +1,5 @@
-import ListItem from "../ListItem";
+import styles from './TimerItem.module.scss'
+import ListItem from "../ListItemContent";
 
 const TimerItem = ({ id, title, setTimerList }: any) => {
 	const handleEditTimer = () => {
@@ -22,12 +23,14 @@ const TimerItem = ({ id, title, setTimerList }: any) => {
 	};
 
 	return (
-		<ListItem
-			id={id}
-			title={title}
-			handleEdit={handleEditTimer}
-			handleRemove={handleRemoveTimer}
-		/>
+		<li className={styles.timerItem}>
+			<ListItem
+				id={id}
+				title={title}
+				handleEdit={handleEditTimer}
+				handleRemove={handleRemoveTimer}
+			/>
+		</li>
 	);
 }
 

@@ -1,10 +1,10 @@
-import styles from './ListItem.module.scss';
+import styles from './ListItemContent.module.scss';
 
 const ListItem = ({ id, title, handleEdit, handleRemove }: any) => {
 	return (
-		<li className={styles.listItem}>
+		<div className={styles.listItemContent}>
 			<h3 className={styles.title}>{title}</h3>
-			<div className={styles.buttonsContainer}>
+			<div className={styles.buttons}>
 				<input
 					type="image"
 					className={styles.button}
@@ -23,7 +23,7 @@ const ListItem = ({ id, title, handleEdit, handleRemove }: any) => {
 					onClick={handleRemove}
 				/>
 			</div>
-		</li>
+		</div>
 	);
 }
 

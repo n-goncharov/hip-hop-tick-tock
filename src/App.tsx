@@ -5,11 +5,21 @@ import Main from './components/Main';
 import RecordTrackModal from "./components/RecordTrackModal";
 
 const App = () => {
+  useEffect(() => {
+    console.log('App');
+  });
+
   const [isMenuActive, setMenuStatus] = useState(false);
-  const [isTrackModalOpen, setTrackModalOpen] = useState(false);
-  const [isTimerModalOpen, setTimerModalOpen] = useState(false);
+
+  const [isTrackModalActive, setTrackModalActive] = useState(false);
+  const [isTimerModalActive, setTimerModalActive] = useState(false);
+
   const [timerList, setTimerList] = useState<any[]>([]);
   const [trackList, setTrackList] = useState<any[]>([]);
+
+  const [timerName, setTimerName] = useState<string>('');
+	const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
+	const [trackId, setTrackId] = useState<string>('');
 
   useEffect(() => {
     const openRequest = indexedDB.open("db", 1);
@@ -49,31 +59,40 @@ const App = () => {
     <>
       <Header
         isMenuActive={isMenuActive}
-        setMenuStatus={() => setMenuStatus((isMenuActive) => !isMenuActive)}
+        setMenuStatus={setMenuStatus}
       />
 
       <Main
         isMenuActive={isMenuActive}
-        showTrackModal={() => setTrackModalOpen(true)}
-        showTimerModal={() => setTimerModalOpen(true)}
+        setTrackModalActive={setTrackModalActive}
+        setTimerModalActive={setTimerModalActive}
         timerList={timerList}
         setTimerList={setTimerList}
         trackList={trackList}
         setTrackList={setTrackList}
+        setTimerName={setTimerName}
+        setTimerDate={setTimerDate}
+        setTrackId={setTrackId}
       />
 
       <AddTimerModal
-        isModalOpen={isTimerModalOpen}
-        closeModal={() => setTimerModalOpen(false)}
         title='Выставить новый таймер'
+        isModalActive={isTimerModalActive}
+        setModalActive={setTimerModalActive}
         setTimerList={setTimerList}
         trackList={trackList}
+        timerName={timerName}
+        timerDate={timerDate}
+        trackId={trackId}
+        setTimerName={setTimerName}
+        setTimerDate={setTimerDate}
+        setTrackId={setTrackId}
       />
 
       <RecordTrackModal
-        isModalOpen={isTrackModalOpen}
-        closeModal={() => setTrackModalOpen(false)}
         title='Записать свой звук'
+        isModalActive={isTrackModalActive}
+        setModalActive={setTrackModalActive}
       />
     </>
   );

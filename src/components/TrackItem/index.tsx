@@ -1,7 +1,16 @@
 import styles from './TrackItem.module.scss'
 import ListItem from "../ListItemContent";
+import { useEffect } from 'react';
 
 const TrackItem = ({ id, title, src, setTrackList }: any) => {
+	useEffect(() => {
+		console.log('TrackItem');
+	});
+
+	const handleEditTrack = () => {
+
+	};
+
 	const handleRemoveTrack = (e: any) => {
 		setTrackList((trackList: any[]) => {
 			const openRequest = indexedDB.open("db", 1);
@@ -24,6 +33,7 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 				<ListItem
 					title={title}
 					id={id}
+					handleEdit={handleEditTrack}
 					handleRemove={handleRemoveTrack}
 				/>
 				<audio

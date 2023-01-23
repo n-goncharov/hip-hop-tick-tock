@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+
 const AddTrackButton = ({ setTrackList }: any) => {
+	useEffect(() => {
+		console.log('AddTrackButton');
+	});
+
 	const handleAddTrack = (e: any) => {
 		const file = e.target.files[0];
 

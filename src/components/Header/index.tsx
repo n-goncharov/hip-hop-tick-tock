@@ -1,13 +1,18 @@
 import styles from './Header.module.scss';
 import cn from "classnames";
+import { memo, useEffect } from 'react';
 
-const Header = ({ isMenuActive, setMenuStatus }: any) => {
+const Header = memo(({ isMenuActive, setMenuStatus }: any) => {
+	useEffect(() => {
+		console.log('Header');
+	});
+
 	return (
 		<header className={styles.header}>
 			<h1 className={styles.title}>HipHopTickTock</h1>
 			<button
 				className={cn(styles.burger, { [styles.burgerActive]: isMenuActive })}
-				onClick={setMenuStatus}
+				onClick={() => setMenuStatus((isMenuActive: any) => !isMenuActive)}
 			>
 				<img
 					width={25}
@@ -18,6 +23,6 @@ const Header = ({ isMenuActive, setMenuStatus }: any) => {
 			</button>
 		</header>
 	);
-}
+});
 
 export default Header;

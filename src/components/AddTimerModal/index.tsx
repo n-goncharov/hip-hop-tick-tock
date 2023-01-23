@@ -1,11 +1,11 @@
 import styles from './AddTimerModal.module.scss';
 import Modal from "../Modal";
-import { useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
-const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList, trackList }: any) => {
-	const [timerName, setTimerName] = useState<string>('');
-	const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
-	const [trackId, setTrackId] = useState<string>('');
+const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList, trackList, timerName, timerDate, trackId, setTimerName, setTimerDate, setTrackId }: any) => {
+	useEffect(() => {
+		console.log('AddTimerModal');
+	});
 
 	const handleAddTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
@@ -34,14 +34,14 @@ const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList, trackList
 			setTimerList((timerList: any) => [...timerList, timer]);
 		};
 
-		closeModal();
+		setModalActive(false);
 	};
 
 	return (
 		<Modal
 			title={title}
-			isModalOpen={isModalOpen}
-			closeModal={closeModal}
+			isModalActive={isModalActive}
+			setModalActive={setModalActive}
 			className={styles.modal}
 		>
 			<div className={styles.addTimerModal}>
@@ -87,12 +87,12 @@ const AddTimerModal = ({ title, isModalOpen, closeModal, setTimerList, trackList
 						width={49}
 						height={49}
 						src='/img/close-modal.png'
-						onClick={closeModal}
+						onClick={() => setModalActive(false)}
 					/>
 				</div>
 			</div>
 		</Modal>
 	);
-}
+});
 
 export default AddTimerModal;

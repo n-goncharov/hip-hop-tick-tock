@@ -1,10 +1,15 @@
+import { useEffect } from 'react';
 import styles from './Button.module.scss';
 
-const Button = ({ title, name, showModal }: any) => {
+const Button = ({ title, name, setModalOpen }: any) => {
+	useEffect(() => {
+		console.log('Button');
+	});
+
 	return (
 		<button
 			className={styles.button}
-			onClick={showModal}
+			onClick={() => setModalOpen(true)}
 		>
 			<img
 				className={styles.img}

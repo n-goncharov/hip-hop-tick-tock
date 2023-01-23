@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import styles from './ListItemContent.module.scss';
 
-const ListItem = ({ id, title, handleEdit, handleRemove }: any) => {
+const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
+	useEffect(() => {
+		console.log('ListItemContent');
+	});
+
 	return (
 		<div className={styles.listItemContent}>
 			<h3 className={styles.title}>{title}</h3>
@@ -11,6 +16,7 @@ const ListItem = ({ id, title, handleEdit, handleRemove }: any) => {
 					width={18}
 					height={18}
 					src="/img/list-item-edit.svg"
+					id={id}
 					onClick={handleEdit}
 					alt=""
 				/>
@@ -27,4 +33,4 @@ const ListItem = ({ id, title, handleEdit, handleRemove }: any) => {
 	);
 }
 
-export default ListItem;
+export default ListItemContent;

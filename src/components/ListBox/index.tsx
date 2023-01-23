@@ -1,8 +1,12 @@
 import styles from './ListBox.module.scss';
 import cn from "classnames";
-import { useState } from "react";
+import { memo, useEffect, useState } from "react";
 
-const ListBox = ({ title, buttons, children }: any) => {
+const ListBox = memo(({ title, buttons, items }: any) => {
+	useEffect(() => {
+		console.log('ListBox');
+	});
+
 	const [isListOpen, setListStatus] = useState(false);
 
 	return (
@@ -26,10 +30,10 @@ const ListBox = ({ title, buttons, children }: any) => {
 			</div>
 
 			<ul className={styles.list}>
-				{children}
+				{items}
 			</ul>
 		</details>
 	);
-}
+});
 
 export default ListBox;

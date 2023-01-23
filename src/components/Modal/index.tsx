@@ -1,14 +1,19 @@
+import { useEffect } from 'react';
 import styles from './Modal.module.scss';
 
-const Modal = ({ title, isModalOpen, closeModal, children }: any) => {
-	if (!isModalOpen) {
+const Modal = ({ title, isModalActive, setModalActive, children }: any) => {
+	useEffect(() => {
+		console.log('Modal');
+	});
+
+	if (!isModalActive) {
 		return null;
 	}
 
 	return (
 		<div
 			className={styles.modal}
-			onClick={closeModal}
+			onClick={() => setModalActive(false)}
 		>
 			<div
 				className={styles.content}

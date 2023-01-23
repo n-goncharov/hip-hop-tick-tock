@@ -7,8 +7,49 @@ import RecordButton from '../RecordButton';
 import TrackItem from '../TrackItem';
 import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
+import { memo, useEffect, useMemo, useRef } from 'react';
 
-const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTimerList, trackList, setTrackList }: any) => {
+const Menu = memo(({ isMenuActive, setTrackModalActive, setTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerName, setTimerDate, setTrackId }: any) => {
+	useEffect(() => {
+		console.log('Menu');
+	});
+
+	const timerButtons = useRef(<AddTimerButton setModalOpen={setTimerModalActive} />);
+
+	const timers = useMemo(() => timerList.map((timer: any) => (
+		<TimerItem
+			key={timer.id}
+			id={timer.id}
+			title={timer.title}
+			setTimerList={setTimerList}
+			setModalActive={setTimerModalActive}
+			setTimerName={setTimerName}
+			setTimerDate={setTimerDate}
+			setTrackId={setTrackId}
+		/>
+	)), [timerList]);
+
+	const trackButtons = useRef([
+		<AddTrackButton
+			key='add-track-button'
+			setTrackList={setTrackList}
+		/>,
+		<RecordButton
+			key='record-button'
+			setModalOpen={setTrackModalActive}
+		/>
+	]);
+
+	const tracks = useMemo(() => trackList.map((track: any) => (
+		<TrackItem
+			key={track.id}
+			id={track.id}
+			title={track.title}
+			src={track.src}
+			setTrackList={setTrackList}
+		/>
+	)), [trackList]);
+
 	return (
 		<aside className={cn(styles.menu, { [styles.menuActive]: isMenuActive })}>
 
@@ -16,48 +57,17 @@ const Menu = ({ isMenuActive, showTrackModal, showTimerModal, timerList, setTime
 
 			<ListBox
 				title='Мои таймеры'
-				buttons={
-					<AddTimerButton showModal={showTimerModal} />
-				}
-			>
-				{timerList.map((timer: any) => (
-					<TimerItem
-						key={timer.id}
-						id={timer.id}
-						title={timer.title}
-						setTimerList={setTimerList}
-						showModal={showTimerModal}
-					/>
-				))}
-			</ListBox>
+				buttons={timerButtons.current}
+				items={timers}
+			/>
 
 			<ListBox
 				title='Библиотека треков'
-				buttons={
-					[
-						<AddTrackButton
-							key='add-track-button'
-							setTrackList={setTrackList}
-						/>,
-						<RecordButton
-							key='record-button'
-							showModal={showTrackModal}
-						/>
-					]
-				}
-			>
-				{trackList.map((track: any) => (
-					<TrackItem
-						key={track.id}
-						id={track.id}
-						title={track.title}
-						src={track.src}
-						setTrackList={setTrackList}
-					/>
-				))}
-			</ListBox>
+				buttons={trackButtons.current}
+				items={tracks}
+			/>
 		</aside>
 	);
-}
+});
 
 export default Menu;

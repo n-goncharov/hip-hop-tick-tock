@@ -1,12 +1,16 @@
+import { useEffect } from "react";
 import Button from "../Button";
 
-const RecordButton = ({ showModal }: any) => {
+const RecordButton = ({ setModalOpen }: any) => {
+	useEffect(() => {
+		console.log('RecordButton');
+	});
 
 	return (
 		<Button
 			title='записать'
 			name='record.png'
-			showModal={showModal}
+			setModalOpen={setModalOpen}
 		/>
 	);
 }

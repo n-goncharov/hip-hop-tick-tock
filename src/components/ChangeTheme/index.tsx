@@ -3,7 +3,7 @@ import styles from './ChangeTheme.module.scss';
 
 const ChangeTheme = memo(() => {
 	useEffect(() => {
-		console.log('ChangeTheme');
+		// console.log('ChangeTheme');
 	});
 
 	return (

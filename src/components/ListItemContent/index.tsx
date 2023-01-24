@@ -3,12 +3,13 @@ import styles from './ListItemContent.module.scss';
 
 const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
 	useEffect(() => {
-		console.log('ListItemContent');
+		// console.log('ListItemContent');
 	});
 
 	return (
 		<div className={styles.listItemContent}>
 			<h3 className={styles.title}>{title}</h3>
+
 			<div className={styles.buttons}>
 				<input
 					type="image"
@@ -20,6 +21,7 @@ const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
 					onClick={handleEdit}
 					alt=""
 				/>
+
 				<input
 					type="image"
 					className={styles.button}
@@ -31,6 +33,6 @@ const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
 			</div>
 		</div>
 	);
-}
+};
 
 export default ListItemContent;

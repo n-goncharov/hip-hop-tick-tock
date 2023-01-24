@@ -1,11 +1,17 @@
-import styles from './AddTimerModal.module.scss';
-import Modal from "../Modal";
+import TimerModal from "../TimerModal";
 import { memo, useEffect, useState } from 'react';
 
-const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList, trackList, timerName, timerDate, trackId, setTimerName, setTimerDate, setTrackId }: any) => {
+const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId }: any) => {
 	useEffect(() => {
-		console.log('AddTimerModal');
+		// console.log('AddTimerModal');
 	});
+
+	const handleClose = () => {
+		setTimerTitle('');
+		setTimerDate('');
+		setTrackId('');
+		setModalActive(false);
+	}
 
 	const handleAddTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
@@ -16,12 +22,13 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 			const timers = transaction.objectStore('timers');
 
 			const timer = {
-				id: timerName,
-				title: timerName,
-				track_id: trackId
+				id: timerTitle,
+				title: timerTitle,
+				track_id: trackId,
+				date: timerDate,
 			};
 
-			const request = timers.add(timer);
+			const request = timers.add(timer, timer.id);
 
 			request.onsuccess = () => {
 				console.log('Timer добавлен в хранилище', request.result);
@@ -34,65 +41,27 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 			setTimerList((timerList: any) => [...timerList, timer]);
 		};
 
-		setModalActive(false);
+		handleClose();
 	};
 
-	return (
-		<Modal
-			title={title}
-			isModalActive={isModalActive}
-			setModalActive={setModalActive}
-			className={styles.modal}
-		>
-			<div className={styles.addTimerModal}>
-				<div className={styles.content}>
-					<input
-						id='timerName'
-						value={timerName}
-						type="text"
-						placeholder="Введите название таймера"
-						onChange={(e) => setTimerName(e.target.value)}
-					/>
-					<input
-						id='timerDate'
-						value={timerDate}
-						className={styles.date}
-						type="datetime-local"
-						onChange={(e) => setTimerDate(e.target.value)}
-					/>
-					{trackList.map((track: any) => (
-						<label key={track.id}>
-							<input
-								type="radio"
-								value={track.id}
-								checked={trackId === track.id}
-								onChange={(e) => setTrackId(e.target.value)}
-							/>
-							{track.id}
-						</label>
-					))}
-				</div>
+	return <TimerModal
+		title={title}
 
-				<div className={styles.buttons}>
-					<input
-						type="image"
-						width={49}
-						height={49}
-						src='/img/accept-modal.png'
-						onClick={handleAddTimer}
-					/>
+		isModalActive={isModalActive}
+		handleClose={handleClose}
 
-					<input
-						type="image"
-						width={49}
-						height={49}
-						src='/img/close-modal.png'
-						onClick={() => setModalActive(false)}
-					/>
-				</div>
-			</div>
-		</Modal>
-	);
+		trackList={trackList}
+
+		timerName={timerTitle}
+		timerDate={timerDate}
+		trackId={trackId}
+
+		setTimerTitle={setTimerTitle}
+		setTimerDate={setTimerDate}
+		setTrackId={setTrackId}
+
+		handleTimer={handleAddTimer}
+	/>;
 });
 
 export default AddTimerModal;

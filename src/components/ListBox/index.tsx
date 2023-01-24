@@ -4,20 +4,21 @@ import { memo, useEffect, useState } from "react";
 
 const ListBox = memo(({ title, buttons, items }: any) => {
 	useEffect(() => {
-		console.log('ListBox');
+		//console.log('ListBox');
 	});
 
-	const [isListOpen, setListStatus] = useState(false);
+	const [isListActive, setListActive] = useState(false);
 
 	return (
 		<details>
 			<summary
 				className={styles.summary}
-				onClick={() => setListStatus((isListOpen) => !isListOpen)}
+				onClick={() => setListActive((isListActive) => !isListActive)}
 			>
 				<h2 className={styles.title}>{title}</h2>
+
 				<img
-					className={cn(styles.arrow, { [styles.arrowOpen]: isListOpen })}
+					className={cn(styles.arrow, { [styles.arrowOpen]: isListActive })}
 					width={18}
 					height={18}
 					src='/img/arrow.png'

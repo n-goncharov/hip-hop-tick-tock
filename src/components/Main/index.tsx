@@ -3,9 +3,9 @@ import Clock from "../Clock";
 import Menu from "../Menu";
 import { memo, useEffect } from 'react';
 
-const Main = memo(({ isMenuActive, setTrackModalActive, setTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerName, setTimerDate, setTrackId }: any) => {
+const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId }: any) => {
 	useEffect(() => {
-		console.log('Main');
+		// console.log('Main');
 	});
 
 	return (
@@ -14,15 +14,22 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setTimerModalActive, tim
 
 			<Menu
 				isMenuActive={isMenuActive}
+
 				setTrackModalActive={setTrackModalActive}
-				setTimerModalActive={setTimerModalActive}
+				setAddTimerModalActive={setAddTimerModalActive}
+				setEditTimerModalActive={setEditTimerModalActive}
+
 				timerList={timerList}
 				setTimerList={setTimerList}
+
 				trackList={trackList}
 				setTrackList={setTrackList}
-				setTimerName={setTimerName}
+
+				setTimerTitle={setTimerTitle}
         setTimerDate={setTimerDate}
         setTrackId={setTrackId}
+
+				setEditTimerId={setEditTimerId}
 			/>
 		</main>
 	);

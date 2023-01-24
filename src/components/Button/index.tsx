@@ -1,21 +1,22 @@
 import { useEffect } from 'react';
 import styles from './Button.module.scss';
 
-const Button = ({ title, name, setModalOpen }: any) => {
+const Button = ({ title, name, setModalActive }: any) => {
 	useEffect(() => {
-		console.log('Button');
+		// console.log('Button');
 	});
 
 	return (
 		<button
 			className={styles.button}
-			onClick={() => setModalOpen(true)}
+			onClick={() => setModalActive(true)}
 		>
 			<img
 				className={styles.img}
 				src={`/img/${name}`}
 				alt=""
 			/>
+
 			<span className={styles.buttonTitle}>{title}</span>
 		</button>
 	);

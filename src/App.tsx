@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
-import AddTimerModal from "./components/AddTimerModal";
 import Header from './components/Header';
 import Main from './components/Main';
+import AddTimerModal from "./components/AddTimerModal";
+import EditTimerModal from "./components/EditTimerModal";
 import RecordTrackModal from "./components/RecordTrackModal";
 
 const App = () => {
   useEffect(() => {
-    console.log('App');
+    // console.log('App');
   });
 
   const [isMenuActive, setMenuStatus] = useState(false);
 
+  const [isAddTimerModalActive, setAddTimerModalActive] = useState(false);
+  const [isEditTimerModalActive, setEditTimerModalActive] = useState(false);
   const [isTrackModalActive, setTrackModalActive] = useState(false);
-  const [isTimerModalActive, setTimerModalActive] = useState(false);
 
   const [timerList, setTimerList] = useState<any[]>([]);
   const [trackList, setTrackList] = useState<any[]>([]);
 
-  const [timerName, setTimerName] = useState<string>('');
+  const [timerTitle, setTimerTitle] = useState<string>('');
 	const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
 	const [trackId, setTrackId] = useState<string>('');
+
+  const[editTimerId, setEditTimerId] = useState('');
 
   useEffect(() => {
     const openRequest = indexedDB.open("db", 1);
@@ -28,11 +32,11 @@ const App = () => {
       const db = openRequest.result;
 
       if (!db.objectStoreNames.contains('tracks')) {
-        db.createObjectStore('tracks', { keyPath: 'id' });
+        db.createObjectStore('tracks');
       }
 
       if (!db.objectStoreNames.contains('timers')) {
-        db.createObjectStore('timers', { keyPath: 'id' });
+        db.createObjectStore('timers');
       }
     };
 
@@ -64,33 +68,67 @@ const App = () => {
 
       <Main
         isMenuActive={isMenuActive}
+
         setTrackModalActive={setTrackModalActive}
-        setTimerModalActive={setTimerModalActive}
+        setAddTimerModalActive={setAddTimerModalActive}
+        setEditTimerModalActive={setEditTimerModalActive}
+
         timerList={timerList}
         setTimerList={setTimerList}
+
         trackList={trackList}
         setTrackList={setTrackList}
-        setTimerName={setTimerName}
+
+        setTimerTitle={setTimerTitle}
         setTimerDate={setTimerDate}
         setTrackId={setTrackId}
+
+        setEditTimerId={setEditTimerId}
       />
 
       <AddTimerModal
         title='Выставить новый таймер'
-        isModalActive={isTimerModalActive}
-        setModalActive={setTimerModalActive}
+
+        isModalActive={isAddTimerModalActive}
+        setModalActive={setAddTimerModalActive}
+
         setTimerList={setTimerList}
+
         trackList={trackList}
-        timerName={timerName}
+
+        timerTitle={timerTitle}
         timerDate={timerDate}
         trackId={trackId}
-        setTimerName={setTimerName}
+
+        setTimerTitle={setTimerTitle}
         setTimerDate={setTimerDate}
         setTrackId={setTrackId}
       />
 
+      <EditTimerModal
+        title='Отредактировать таймер'
+
+        isModalActive={isEditTimerModalActive}
+        setModalActive={setEditTimerModalActive}
+
+        setTimerList={setTimerList}
+
+        trackList={trackList}
+
+        timerTitle={timerTitle}
+        timerDate={timerDate}
+        trackId={trackId}
+
+        setTimerTitle={setTimerTitle}
+        setTimerDate={setTimerDate}
+        setTrackId={setTrackId}
+
+        editTimerId={editTimerId}
+      />
+
       <RecordTrackModal
         title='Записать свой звук'
+
         isModalActive={isTrackModalActive}
         setModalActive={setTrackModalActive}
       />

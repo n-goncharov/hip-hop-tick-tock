@@ -9,34 +9,45 @@ import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
 import { memo, useEffect, useMemo, useRef } from 'react';
 
-const Menu = memo(({ isMenuActive, setTrackModalActive, setTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerName, setTimerDate, setTrackId }: any) => {
+const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId }: any) => {
 	useEffect(() => {
-		console.log('Menu');
+		// console.log('Menu');
 	});
 
-	const timerButtons = useRef(<AddTimerButton setModalOpen={setTimerModalActive} />);
+	const timerButtons = useRef(
+		<AddTimerButton setModalActive={setAddTimerModalActive} />
+	);
 
 	const timers = useMemo(() => timerList.map((timer: any) => (
 		<TimerItem
 			key={timer.id}
+
 			id={timer.id}
 			title={timer.title}
+			trackId={timer.track_id}
+			date={timer.date}
+
 			setTimerList={setTimerList}
-			setModalActive={setTimerModalActive}
-			setTimerName={setTimerName}
+
+			setModalActive={setEditTimerModalActive}
+
+			setTimerTitle={setTimerTitle}
 			setTimerDate={setTimerDate}
 			setTrackId={setTrackId}
+
+			setEditTimerId={setEditTimerId}
 		/>
 	)), [timerList]);
 
 	const trackButtons = useRef([
 		<AddTrackButton
-			key='add-track-button'
+			key='addTrackButton'
 			setTrackList={setTrackList}
 		/>,
+
 		<RecordButton
-			key='record-button'
-			setModalOpen={setTrackModalActive}
+			key='recordButton'
+			setModalActive={setTrackModalActive}
 		/>
 	]);
 

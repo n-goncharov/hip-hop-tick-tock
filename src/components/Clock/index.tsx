@@ -3,11 +3,13 @@ import styles from "./Clock.module.scss"
 
 const Clock = memo(() => {
 	useEffect(() => {
-		console.log('Clock');
+		// console.log('Clock');
 	});
 
 	return (
-		<div></div>
+		<div>
+
+		</div>
 	);
 });
 

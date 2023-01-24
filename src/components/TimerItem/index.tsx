@@ -1,19 +1,21 @@
 import styles from './TimerItem.module.scss'
-import ListItem from "../ListItemContent";
+import ListItemContent from "../ListItemContent";
 import { useEffect } from 'react';
 
-const TimerItem = ({ id, title, setTimerList, setModalActive, setTimerName, setTimerDate, setTrackId }: any) => {
+const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, setTimerTitle, setTimerDate, setTrackId, setEditTimerId }: any) => {
 	useEffect(() => {
-		console.log('TimerItem');
+		// console.log('TimerItem');
 	});
 
-	const handleEditTimer = (e: any) => {
-		//Поиск в базе таймеров по ключу e.target.id
-		// setTimerName();
-		// setTimerDate();
-		// setTrackId();
-		//setModalActive(true);
-	}
+	const handleEditTimer = () => {
+		setEditTimerId(id);
+
+		setTimerTitle(title);
+		setTimerDate(date);
+		setTrackId(trackId);
+
+		setModalActive(true);
+	};
 
 	const handleRemoveTimer = (e: any) => {
 		setTimerList((timerList: any[]) => {
@@ -33,7 +35,7 @@ const TimerItem = ({ id, title, setTimerList, setModalActive, setTimerName, setT
 
 	return (
 		<li className={styles.timerItem}>
-			<ListItem
+			<ListItemContent
 				id={id}
 				title={title}
 				handleEdit={handleEditTimer}

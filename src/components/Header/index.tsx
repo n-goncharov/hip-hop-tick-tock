@@ -4,12 +4,13 @@ import { memo, useEffect } from 'react';
 
 const Header = memo(({ isMenuActive, setMenuStatus }: any) => {
 	useEffect(() => {
-		console.log('Header');
+		// console.log('Header');
 	});
 
 	return (
 		<header className={styles.header}>
 			<h1 className={styles.title}>HipHopTickTock</h1>
+
 			<button
 				className={cn(styles.burger, { [styles.burgerActive]: isMenuActive })}
 				onClick={() => setMenuStatus((isMenuActive: any) => !isMenuActive)}

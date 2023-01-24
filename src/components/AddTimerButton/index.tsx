@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import Button from "../Button";
 
-const AddTimerButton = ({ setModalOpen }: any) => {
+const AddTimerButton = ({ setModalActive }: any) => {
 	useEffect(() => {
-		console.log('AddTimerButton');
+		// console.log('AddTimerButton');
 	});
 
 	return (
 		<Button
 			title='добавить'
 			name='add.png'
-			setModalOpen={setModalOpen}
+			setModalActive={setModalActive}
 		/>
 	);
 }

@@ -4,14 +4,14 @@ import { memo, useEffect } from 'react';
 
 const RecordTrackModal = memo(({ title, isModalActive, setModalActive }: any) => {
 	useEffect(() => {
-		console.log('RecordTrackModal');
+		//console.log('RecordTrackModal');
 	});
 
 	return (
 		<Modal
 			title={title}
 			isModalActive={isModalActive}
-			setModalActive={setModalActive}
+			handleClose={() => setModalActive(false)}
 		>
 			<input type="text" />
 			<div className={styles.buttons}>
@@ -21,6 +21,7 @@ const RecordTrackModal = memo(({ title, isModalActive, setModalActive }: any) =>
 					height={49}
 					src='/img/accept-modal.png'
 				/>
+
 				<input
 					type="image"
 					width={49}

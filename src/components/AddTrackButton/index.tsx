@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const AddTrackButton = ({ setTrackList }: any) => {
 	useEffect(() => {
-		console.log('AddTrackButton');
+		// console.log('AddTrackButton');
 	});
 
 	const handleAddTrack = (e: any) => {
@@ -26,7 +26,7 @@ const AddTrackButton = ({ setTrackList }: any) => {
 					src: src
 				};
 
-				const request = tracks.add(track);
+				const request = tracks.add(track, track.id);
 
 				request.onsuccess = () => {
 					console.log('Track добавлен в хранилище', request.result);

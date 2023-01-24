@@ -1,0 +1,27 @@
+.listItemContent {
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+	white-space: nowrap;
+	align-items: center;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.title {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 90%;
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
+.button {
+	cursor: pointer;
+	border: none;
+	background-color: rgba(1, 1, 1, 0);
+}

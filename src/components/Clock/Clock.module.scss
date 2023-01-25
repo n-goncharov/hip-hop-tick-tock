@@ -1,0 +1,125 @@
+$clockSize: 600px;
+
+.clock {
+	position: relative;
+
+	width: $clockSize;
+	height: $clockSize;
+
+	border-radius: 50%;
+}
+
+.hourWrapper {
+	position: absolute;
+	//left: calc(50% - 50px);
+	// top: 50%;
+	top: 2%;
+	left: 45.5%;
+	transform-origin: 50% 290px;
+	transform: rotate(0deg);
+}
+
+.hourWrapper:nth-child(1) {
+	transform: rotate(0deg);
+}
+
+.hourWrapper:nth-child(2) {
+	transform: rotate(30deg);
+}
+
+.hourWrapper:nth-child(3) {
+	transform: rotate(60deg);
+}
+
+.hourWrapper:nth-child(4) {
+	transform: rotate(90deg);
+}
+
+.hourWrapper:nth-child(5) {
+	transform: rotate(120deg);
+}
+
+.hourWrapper:nth-child(6) {
+	transform: rotate(150deg);
+}
+
+.hourWrapper:nth-child(7) {
+	transform: rotate(180deg);
+}
+
+.hourWrapper:nth-child(8) {
+	transform: rotate(210deg);
+}
+
+.hourWrapper:nth-child(9) {
+	transform: rotate(240deg);
+}
+
+.hourWrapper:nth-child(10) {
+	transform: rotate(270deg);
+}
+
+.hourWrapper:nth-child(11) {
+	transform: rotate(300deg);
+}
+
+.hourWrapper:nth-child(12) {
+	transform: rotate(330deg);
+}
+
+.hour {
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 58px;
+
+	background-color: #565656;
+	color: transparent;
+	text-shadow: 1px 2px 3px rgba(255, 255, 255, 1);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+}
+
+.hourWrapper:nth-child(2)>.hour {
+	transform: rotate(-30deg);
+}
+
+.hourWrapper:nth-child(3)>.hour {
+	transform: rotate(-60deg);
+}
+
+.hourWrapper:nth-child(4)>.hour {
+	transform: rotate(-90deg);
+}
+
+.hourWrapper:nth-child(5)>.hour {
+	transform: rotate(-120deg);
+}
+
+.hourWrapper:nth-child(6)>.hour {
+	transform: rotate(-150deg);
+}
+
+.hourWrapper:nth-child(7)>.hour {
+	transform: rotate(-180deg);
+}
+
+.hourWrapper:nth-child(8)>.hour {
+	transform: rotate(-210deg);
+}
+
+.hourWrapper:nth-child(9)>.hour {
+	transform: rotate(-240deg);
+}
+
+.hourWrapper:nth-child(10)>.hour {
+	transform: rotate(-270deg);
+}
+
+.hourWrapper:nth-child(11)>.hour {
+	transform: rotate(-300deg);
+}
+
+.hourWrapper:nth-child(12)>.hour {
+	transform: rotate(-330deg);
+}

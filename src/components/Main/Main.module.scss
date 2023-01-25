@@ -1,3 +1,22 @@
+@use "sass:math";
+
 .main {
-	padding-right: 500px;
+	height: calc(100% - 50px);
+}
+
+.clockWrapper {
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 1s;
+
+	&_width_cut {
+		width: math.div(1220px, 1920px) * 100 + vw;
+	}
+
+	&_width_full {
+		width: 100%;
+	}
 }

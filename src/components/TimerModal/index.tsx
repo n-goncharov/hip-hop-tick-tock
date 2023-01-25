@@ -30,6 +30,7 @@ const TimerModal = ({ title, isModalActive, handleClose, trackList, timerTitle, 
 					{trackList.map((track: any) => (
 						<label className={styles.label} key={track.id}>
 							<input
+								className={styles.inputRadio}
 								type="radio"
 								value={track.id}
 								checked={trackId === track.id}

@@ -1,31 +1,28 @@
 import { useEffect } from 'react';
 import styles from './Modal.module.scss';
+import cn from 'classnames'
 
-const Modal = ({ title, isModalActive, handleClose, children }: any) => {
+const Modal = ({ title, isModalActive, setModalActive, children }: any) => {
 	useEffect(() => {
-		//console.log('Modal');
+		// console.log('Modal');
 	});
 
 	return (
-		<>
-			{isModalActive &&
-				<div
-					className={styles.modal}
-					onClick={handleClose}
-				>
-					<div
-						className={styles.content}
-						onClick={e => e.stopPropagation()}
-					>
-						<h2 className={styles.title}>
-							{title}
-						</h2>
+		<div
+			className={cn(styles.modal, { [styles.modal_visible]: isModalActive })}
+			onClick={() => setModalActive(false)}
+		>
+			<div
+				className={styles.content}
+				onClick={e => e.stopPropagation()}
+			>
+				<h2 className={styles.title}>
+					{title}
+				</h2>
 
-						{children}
-					</div>
-				</div>
-			}
-		</>
+				{children}
+			</div>
+		</div>
 	);
 }
 

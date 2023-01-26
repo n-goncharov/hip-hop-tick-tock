@@ -6,13 +6,6 @@ const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, tr
 		// console.log('EditTimerModal');
 	});
 
-	const handleClose = () => {
-		setTimerTitle('');
-		setTimerDate('');
-		setTrackId('');
-		setModalActive(false);
-	}
-
 	const handleEditTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
 
@@ -54,7 +47,7 @@ const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, tr
 			title={title}
 
 			isModalActive={isModalActive}
-			handleClose={handleClose}
+			setModalActive={setModalActive}
 
 			trackList={trackList}
 

@@ -6,13 +6,6 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 		// console.log('AddTimerModal');
 	});
 
-	const handleClose = () => {
-		setTimerTitle('');
-		setTimerDate('');
-		setTrackId('');
-		setModalActive(false);
-	}
-
 	const handleAddTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
 
@@ -41,18 +34,18 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 			setTimerList((timerList: any) => [...timerList, timer]);
 		};
 
-		handleClose();
+		setModalActive(false);
 	};
 
 	return <TimerModal
 		title={title}
 
 		isModalActive={isModalActive}
-		handleClose={handleClose}
+		setModalActive={setModalActive}
 
 		trackList={trackList}
 
-		timerName={timerTitle}
+		timerTitle={timerTitle}
 		timerDate={timerDate}
 		trackId={trackId}
 
@@ -60,7 +53,7 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 		setTimerDate={setTimerDate}
 		setTrackId={setTrackId}
 
-		handleTimer={handleAddTimer}
+		handleAddTimer={handleAddTimer}
 	/>;
 });
 

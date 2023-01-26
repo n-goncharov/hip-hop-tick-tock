@@ -1,4 +1,6 @@
+import styles from './AddTrackButton.module.scss'
 import { useEffect } from "react";
+import Button from '../Button';
 
 const AddTrackButton = ({ setTrackList }: any) => {
 	useEffect(() => {
@@ -45,11 +47,24 @@ const AddTrackButton = ({ setTrackList }: any) => {
 	}
 
 	return (
-		<input
-			type="file"
-			accept="audio/*"
-			onChange={handleAddTrack}
-		/>
+		<>
+			<label
+				htmlFor="upload-track"
+				className={styles.button}
+			>
+				<input
+					id='upload-track'
+					type="file"
+					accept="audio/*"
+					onChange={handleAddTrack}
+				/>
+
+				<Button
+					title='добавить'
+					name='add.png'
+				/>
+			</label>
+		</>
 	);
 }
 

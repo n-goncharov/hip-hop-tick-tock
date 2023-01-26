@@ -1,22 +1,35 @@
 .button {
+	background-color: rgba(72, 191, 255, 0.6);
+
 	box-sizing: border-box;
 	border: none;
+	border-radius: 5px;
+
 	width: 180px;
 	height: 33px;
+
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 	gap: 20px;
+
 	padding-left: 15px;
+
 	font-size: 20px;
 	cursor: pointer;
 
+	transition: background-color 0.3s;
+
 	&:hover {
-		background-color: #ccc;
+		background-color: rgba(141, 135, 223, 0.6);
 	}
 }
 
 .img {
 	width: 19px;
 	height: 16px;
+}
+
+.title {
+
 }

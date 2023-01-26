@@ -10,7 +10,7 @@ const ListBox = memo(({ title, buttons, items }: any) => {
 	const [isListActive, setListActive] = useState(false);
 
 	return (
-		<details>
+		<details className={styles.details}>
 			<summary
 				className={styles.summary}
 				onClick={() => setListActive((isListActive) => !isListActive)}
@@ -29,7 +29,6 @@ const ListBox = memo(({ title, buttons, items }: any) => {
 			<div className={styles.buttonsContainer}>
 				{buttons}
 			</div>
-
 			<ul className={styles.list}>
 				{items}
 			</ul>

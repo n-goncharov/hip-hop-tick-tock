@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import styles from './Button.module.scss';
 
-const Button = ({ title, name, setModalActive }: any) => {
+const Button = ({ title, name, onClick }: any) => {
 	useEffect(() => {
 		// console.log('Button');
 	});
 
 	return (
-		<button
+		<div
 			className={styles.button}
-			onClick={() => setModalActive(true)}
+			onClick={onClick}
 		>
 			<img
 				className={styles.img}
@@ -17,8 +17,8 @@ const Button = ({ title, name, setModalActive }: any) => {
 				alt=""
 			/>
 
-			<span className={styles.buttonTitle}>{title}</span>
-		</button>
+			<span className={styles.title}>{title}</span>
+		</div>
 	);
 }
 

@@ -11,7 +11,7 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 
 	return (
 		<main className={styles.main}>
-			<div className={cn(styles.clockWrapper, {[styles.clockWrapper_width_full]: !isMenuActive, [styles.clockWrapper_width_cut]: isMenuActive})}>
+			<div className={cn(styles.clockWrapper,{ [styles.clockWrapper_short]: isMenuActive})}>
 				<Clock />
 			</div>
 

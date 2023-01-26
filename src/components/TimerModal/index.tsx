@@ -1,13 +1,12 @@
 import styles from './TimerModal.module.scss'
 import Modal from "../Modal";
 
-const TimerModal = ({ title, isModalActive, handleClose, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, handleTimer }: any) => {
+const TimerModal = ({ title, isModalActive, setModalActive, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, handleAddTimer }: any) => {
 	return (
 		<Modal
 			title={title}
 			isModalActive={isModalActive}
-			handleClose={handleClose}
-			className={styles.modal}
+			setModalActive={setModalActive}
 		>
 			<div className={styles.addTimerModal}>
 				<div className={styles.content}>
@@ -36,6 +35,7 @@ const TimerModal = ({ title, isModalActive, handleClose, trackList, timerTitle, 
 								checked={trackId === track.id}
 								onChange={(e) => setTrackId(e.target.value)}
 							/>
+
 							{track.title}
 						</label>
 					))}
@@ -47,7 +47,7 @@ const TimerModal = ({ title, isModalActive, handleClose, trackList, timerTitle, 
 						width={49}
 						height={49}
 						src='/img/accept-modal.png'
-						onClick={handleTimer}
+						onClick={handleAddTimer}
 					/>
 
 					<input
@@ -55,7 +55,7 @@ const TimerModal = ({ title, isModalActive, handleClose, trackList, timerTitle, 
 						width={49}
 						height={49}
 						src='/img/close-modal.png'
-						onClick={handleClose}
+						onClick={() => setModalActive(false)}
 					/>
 				</div>
 			</div>

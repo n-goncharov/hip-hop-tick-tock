@@ -87,7 +87,7 @@ const App = () => {
       />
 
       <AddTimerModal
-        title='Выставить новый таймер'
+        title='Добавить таймер'
 
         isModalActive={isAddTimerModalActive}
         setModalActive={setAddTimerModalActive}

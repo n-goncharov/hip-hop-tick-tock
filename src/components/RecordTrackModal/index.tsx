@@ -11,7 +11,7 @@ const RecordTrackModal = memo(({ title, isModalActive, setModalActive }: any) =>
 		<Modal
 			title={title}
 			isModalActive={isModalActive}
-			handleClose={() => setModalActive(false)}
+			setModalActive={setModalActive}
 		>
 			<input type="text" />
 			<div className={styles.buttons}>

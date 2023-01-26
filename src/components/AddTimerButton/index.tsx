@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Button from "../Button";
 
-const AddTimerButton = ({ setModalActive }: any) => {
+const AddTimerButton = ({ onClick }: any) => {
 	useEffect(() => {
 		// console.log('AddTimerButton');
 	});
@@ -10,7 +10,7 @@ const AddTimerButton = ({ setModalActive }: any) => {
 		<Button
 			title='добавить'
 			name='add.png'
-			setModalActive={setModalActive}
+			onClick={onClick}
 		/>
 	);
 }

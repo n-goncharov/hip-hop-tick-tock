@@ -14,8 +14,15 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 		// console.log('Menu');
 	});
 
+	const openAddTimerModal = () => {
+		setTimerTitle('');
+		setTimerDate('');
+		setTrackId('');
+		setAddTimerModalActive(true);
+	}
+
 	const timerButtons = useRef(
-		<AddTimerButton setModalActive={setAddTimerModalActive} />
+		<AddTimerButton onClick={openAddTimerModal} />
 	);
 
 	const timers = useMemo(() => timerList.map((timer: any) => (
@@ -47,7 +54,7 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 
 		<RecordButton
 			key='recordButton'
-			setModalActive={setTrackModalActive}
+			onClick={() => setTrackModalActive(true)}
 		/>
 	]);
 

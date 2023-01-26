@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Button from "../Button";
 
-const RecordButton = ({ setModalActive }: any) => {
+const RecordButton = ({ onClick }: any) => {
 	useEffect(() => {
 		//console.log('RecordButton');
 	});
@@ -10,7 +10,7 @@ const RecordButton = ({ setModalActive }: any) => {
 		<Button
 			title='записать'
 			name='record.png'
-			setModalActive={setModalActive}
+			onClick={onClick}
 		/>
 	);
 }

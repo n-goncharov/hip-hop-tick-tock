@@ -53,7 +53,7 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 		setTimerDate={setTimerDate}
 		setTrackId={setTrackId}
 
-		handleAddTimer={handleAddTimer}
+		handleTimer={handleAddTimer}
 	/>;
 });
 

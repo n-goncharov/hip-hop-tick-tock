@@ -1,7 +1,7 @@
 import styles from './TimerModal.module.scss'
 import Modal from "../Modal";
 
-const TimerModal = ({ title, isModalActive, setModalActive, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, handleAddTimer }: any) => {
+const TimerModal = ({ title, isModalActive, setModalActive, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, handleTimer }: any) => {
 	return (
 		<Modal
 			title={title}
@@ -47,7 +47,7 @@ const TimerModal = ({ title, isModalActive, setModalActive, trackList, timerTitl
 						width={49}
 						height={49}
 						src='/img/accept-modal.png'
-						onClick={handleAddTimer}
+						onClick={handleTimer}
 					/>
 
 					<input

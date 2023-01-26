@@ -11,6 +11,7 @@ const Clock = memo(() => {
 	const hours = date.getHours();
 	const minutes = date.getMinutes();
 	const seconds = date.getSeconds();
+	const milliseconds = date.getMilliseconds();
 
 	const [secondsDegree, setSecondsDegree] = useState(seconds * 6);
 	const [minutesDegree, setMinutesDegree] = useState(minutes * 6 + seconds * 0.1);

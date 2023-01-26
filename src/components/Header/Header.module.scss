@@ -32,6 +32,6 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	transition: transform 1s, background-color 1s;
 
 	&Active {
-		background-color: #F9F9F9;
+		background-color: #78fdff3a;
 	}
 }

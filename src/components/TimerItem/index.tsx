@@ -2,41 +2,15 @@ import styles from './TimerItem.module.scss'
 import ListItemContent from "../ListItemContent";
 import { useEffect } from 'react';
 
-const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audio }: any) => {
+const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, playAudio, timerTimeoutId }: any) => {
 	useEffect(() => {
 		// console.log('TimerItem');
 	});
 
 	useEffect(() => {
-		let timerTimeoutId: any;
+		playAudio(date, trackId);
 
-		const openRequest = indexedDB.open("db", 1);
-
-		openRequest.onsuccess = () => {
-			const db = openRequest.result;
-			const transactionTrack = db.transaction("tracks", "readwrite");
-
-			const tracks = transactionTrack.objectStore("tracks");
-			const requestTracks = tracks.getAll();
-
-			requestTracks.onsuccess = () => {
-				const timerDate = new Date(date);
-				const ms = +timerDate - Date.now();
-
-				const track = requestTracks.result.find((track: any) => track.id === trackId);
-				const src = track.src;
-
-				if (ms >= 0) {
-					timerTimeoutId = setTimeout(() => {
-						audio.current = new Audio(src);
-						audio.current.play();
-						setTimerActive(true);
-					}, ms);
-				}
-			};
-		};
-
-		return () => clearInterval(timerTimeoutId);
+		return () => clearTimeout(timerTimeoutId.current);
 	}, []);
 
 	const handleEditTimer = () => {

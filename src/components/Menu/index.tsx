@@ -9,7 +9,7 @@ import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
 import { memo, useEffect, useMemo, useRef } from 'react';
 
-const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audio }: any) => {
+const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, playAudio, timerTimeoutId }: any) => {
 	useEffect(() => {
 		// console.log('Menu');
 	});
@@ -45,7 +45,8 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 			setEditTimerId={setEditTimerId}
 
 			setTimerActive={setTimerActive}
-			audio={audio}
+			playAudio={playAudio}
+			timerTimeoutId={timerTimeoutId}
 		/>
 	)), [timerList]);
 

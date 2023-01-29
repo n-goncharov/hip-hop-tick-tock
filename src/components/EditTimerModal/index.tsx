@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import TimerModal from "../TimerModal";
 
-const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, editTimerId}: any) => {
+const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, editTimerId, playAudio, timerTimeoutId }: any) => {
 	useEffect(() => {
 		// console.log('EditTimerModal');
 	});
@@ -31,6 +31,9 @@ const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, tr
 				console.log('Ошибка', request.error);
 			};
 		};
+
+		clearTimeout(timerTimeoutId.current);
+		playAudio(timerDate, trackId);
 
 		setTimerList((timerList: any) => {
 			const timerListCopy = [...timerList];

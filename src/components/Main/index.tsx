@@ -5,7 +5,7 @@ import { memo, useEffect } from 'react';
 import cn from 'classnames';
 import CrazyClock from '../CrazyClock';
 
-const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, isTimerActive, setTimerActive, audio, stopAudio }: any) => {
+const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, isTimerActive, setTimerActive, playAudio, stopAudio, timerTimeoutId }: any) => {
 	useEffect(() => {
 		// console.log('Main');
 	});
@@ -48,7 +48,8 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 
 				setTimerActive={setTimerActive}
 
-				audio={audio}
+				playAudio={playAudio}
+				timerTimeoutId={timerTimeoutId}
 			/>
 		</main>
 	);

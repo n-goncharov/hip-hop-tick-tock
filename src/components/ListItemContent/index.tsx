@@ -8,7 +8,9 @@ const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
 
 	return (
 		<div className={styles.listItemContent}>
-			<h3 className={styles.title}>{title}</h3>
+			<div className={styles.title}>
+				{title}
+			</div>
 
 			<div className={styles.buttons}>
 				<input

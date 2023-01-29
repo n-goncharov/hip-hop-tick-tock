@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import TimerModal from "../TimerModal";
 
-const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, editTimerId }: any) => {
+const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, editTimerId}: any) => {
 	useEffect(() => {
 		// console.log('EditTimerModal');
 	});

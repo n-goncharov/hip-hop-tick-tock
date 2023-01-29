@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import styles from './EditListItem.module.scss'
+import styles from './EditTrackInput.module.scss';
 
-const EditListItem = ({ id, title, src, handleEdit, handleRemove, setTrackList, setTrackEdit }: any) => {
+const EditTrackInput = ({ id, title, src, setTrackList, setTrackEdit }: any) => {
 	useEffect(() => {
-		// console.log('EditListItem');
+		// console.log('EditTrackInput');
 	});
 
 	const [titleInput, setTitleInput] = useState(title);
@@ -39,7 +39,7 @@ const EditListItem = ({ id, title, src, handleEdit, handleRemove, setTrackList, 
 			setTrackList((trackList: any) => {
 				const trackListCopy = [...trackList];
 				const index = trackListCopy.findIndex((item) => item.id === id);
-				trackListCopy[index].title = titleInput;
+				trackListCopy[index] = track;
 				return trackListCopy;
 			});
 
@@ -48,37 +48,13 @@ const EditListItem = ({ id, title, src, handleEdit, handleRemove, setTrackList, 
 	};
 
 	return (
-		<div className={styles.listItemContent}>
-			<input
-				className={styles.title}
-				value={titleInput}
-				onChange={(e: any) => setTitleInput(e.target.value)}
-				onKeyDown={onKeyDown}
-			/>
-
-			<div className={styles.buttons}>
-				<input
-					type="image"
-					className={styles.button}
-					width={18}
-					height={18}
-					src="/img/list-item-edit.svg"
-					id={id}
-					onClick={handleEdit}
-					alt=""
-				/>
-
-				<input
-					type="image"
-					className={styles.button}
-					src="/img/list-item-delete.svg"
-					alt=""
-					id={id}
-					onClick={handleRemove}
-				/>
-			</div>
-		</div>
+		<input
+			className={styles.input}
+			value={titleInput}
+			onChange={(e: any) => setTitleInput(e.target.value)}
+			onKeyDown={onKeyDown}
+		/>
 	);
 };
 
-export default EditListItem;
+export default EditTrackInput;

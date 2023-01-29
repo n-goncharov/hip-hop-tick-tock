@@ -1,8 +1,7 @@
 import { memo, useEffect, useState } from "react";
-import { rootCertificates } from "tls";
 import styles from "./Clock.module.scss"
 
-const Clock = memo(() => {
+const Clock = memo(({frameRate, }: any) => {
 	useEffect(() => {
 		// console.log('Clock');
 	});
@@ -11,20 +10,19 @@ const Clock = memo(() => {
 	const hours = date.getHours();
 	const minutes = date.getMinutes();
 	const seconds = date.getSeconds();
-	const milliseconds = date.getMilliseconds();
 
 	const [secondsDegree, setSecondsDegree] = useState(seconds * 6);
 	const [minutesDegree, setMinutesDegree] = useState(minutes * 6 + seconds * 0.1);
-	const [hoursDegree, setHoursDegree] = useState(hours * 30 + minutes * 0.5 + seconds * 0.008333333333333);
+	const [hoursDegree, setHoursDegree] = useState(hours * 30 + minutes * 0.5 + seconds / 120);
 
 	const updateTime = () => {
-		setSecondsDegree((secondsDegree) => secondsDegree + 6)
-		setMinutesDegree((minutesDegree) => minutesDegree + 0.1);
-		setHoursDegree((hoursDegree) => hoursDegree + 0.008333333333333);
+		setSecondsDegree((secondsDegree) => (secondsDegree + 6) % 360)
+		setMinutesDegree((minutesDegree) => (minutesDegree + 0.1) % 360);
+		setHoursDegree((hoursDegree) => (hoursDegree + 1 / 120) % 360);
 	}
 
 	useEffect(() => {
-		const timerId = setInterval(updateTime, 1000);
+		const timerId = setInterval(updateTime, frameRate);
 		return () => clearInterval(timerId);
 	}, []);
 

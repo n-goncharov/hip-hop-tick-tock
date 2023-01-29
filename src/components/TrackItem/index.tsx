@@ -1,7 +1,8 @@
 import styles from './TrackItem.module.scss'
 import ListItemContent from "../ListItemContent";
 import { useEffect, useState } from 'react';
-import EditListItem from '../EditListItem';
+import EditListItem from '../EditTrackInput';
+import EditTrackInput from '../EditTrackInput';
 
 const TrackItem = ({ id, title, src, setTrackList }: any) => {
 	useEffect(() => {
@@ -9,10 +10,6 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 	});
 
 	const [isTrackEdit, setTrackEdit] = useState(true);
-
-	const handleEdit = (e: any) => {
-		setTrackEdit((isTrackEdit) => !isTrackEdit);
-	}
 
 	const handleRemoveTrack = (e: any) => {
 		setTrackList((trackList: any[]) => {
@@ -30,24 +27,41 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 		});
 	};
 
-	return (
-		<>
-			<li className={styles.trackItem}>
-				{isTrackEdit ? <ListItemContent
-					title={title}
+	const listItemContent = () => {
+		if (isTrackEdit) {
+			return (
+				<ListItemContent
+					title={<h3>{title}</h3>}
 					id={id}
 					handleEdit={() => setTrackEdit((isTrackEdit) => !isTrackEdit)}
 					handleRemove={handleRemoveTrack}
-				/> : <EditListItem
-					id={id}
-					title={title}
-					src={src}
-					handleEdit={handleEdit}
-					handleRemove={handleRemoveTrack}
-					setTrackList={setTrackList}
-					setTrackEdit={setTrackEdit}
 				/>
+			);
+		}
+
+		return (
+			<ListItemContent
+				title={
+					<EditTrackInput
+						id={id}
+						title={title}
+						src={src}
+
+						setTrackList={setTrackList}
+						setTrackEdit={setTrackEdit}
+					/>
 				}
+				id={id}
+				handleEdit={() => setTrackEdit((isTrackEdit) => !isTrackEdit)}
+				handleRemove={handleRemoveTrack}
+			/>
+		);
+	};
+
+	return (
+		<>
+			<li className={styles.trackItem}>
+				{listItemContent()}
 
 				<audio
 					className={styles.audio}

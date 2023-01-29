@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Header from './components/Header';
 import Main from './components/Main';
 import AddTimerModal from "./components/AddTimerModal";
@@ -20,10 +20,10 @@ const App = () => {
   const [trackList, setTrackList] = useState<any[]>([]);
 
   const [timerTitle, setTimerTitle] = useState<string>('');
-	const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
-	const [trackId, setTrackId] = useState<string>('');
+  const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
+  const [trackId, setTrackId] = useState<string>('');
 
-  const[editTimerId, setEditTimerId] = useState('');
+  const [editTimerId, setEditTimerId] = useState('');
 
   useEffect(() => {
     const openRequest = indexedDB.open("db", 1);
@@ -49,15 +49,23 @@ const App = () => {
       const requestTracks = tracks.getAll();
       requestTracks.onsuccess = () => {
         setTrackList(requestTracks.result);
-      }
+      };
 
       const timers = transactionTimer.objectStore("timers");
       const requestTimers = timers.getAll();
       requestTimers.onsuccess = () => {
         setTimerList(requestTimers.result);
-      }
-    }
+      };
+    };
   }, []);
+
+  const [isTimerActive, setTimerActive] = useState(false);
+
+  let audio = useRef<HTMLAudioElement>();
+
+  const stopAudio = () => {
+    audio.current?.pause();
+  };
 
   return (
     <>
@@ -84,6 +92,12 @@ const App = () => {
         setTrackId={setTrackId}
 
         setEditTimerId={setEditTimerId}
+
+        isTimerActive={isTimerActive}
+        setTimerActive={setTimerActive}
+
+        audio={audio}
+        stopAudio={stopAudio}
       />
 
       <AddTimerModal
@@ -124,6 +138,8 @@ const App = () => {
         setTrackId={setTrackId}
 
         editTimerId={editTimerId}
+
+        setTimerActive={setTimerActive}
       />
 
       <RecordTrackModal

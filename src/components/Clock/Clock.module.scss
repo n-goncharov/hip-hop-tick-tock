@@ -13,16 +13,24 @@ $clockSize: 600px;
 	border-radius: 50%;
 
 	user-select: none;
+
+	z-index: -1;
+
+	&Button {
+		cursor: pointer;
+	}
 }
 
 .hourWrapper {
 	position: absolute;
-	//left: calc(50% - 50px);
-	// top: 50%;
 	top: 1em;
-	left: calc(50% - 1.5em);
+	left: calc(50% - 1em);
 	transform-origin: 50% calc(300px - 1em);
 	transform: rotate(0deg);
+}
+
+.hourWrapperDouble {
+	left: calc(50% - 1.5em);
 }
 
 .hourWrapper:nth-child(1) {
@@ -78,13 +86,7 @@ $clockSize: 600px;
 	font-size: 48px;
 	line-height: 58px;
 
-	color: pink;
-	// background-color: #565656;
-	// color: transparent;
-	// text-shadow: 1px 2px 3px rgba(255, 255, 255, 1);
-	// -webkit-background-clip: text;
-	// -moz-background-clip: text;
-	// background-clip: text;
+	color: rgb(56, 183, 132);
 }
 
 .hourWrapper:nth-child(2)>.hour {
@@ -129,24 +131,6 @@ $clockSize: 600px;
 
 .hourWrapper:nth-child(12)>.hour {
 	transform: rotate(-330deg);
-}
-
-.secondHand {
-	position: absolute;
-	left: calc(50% - 6px);
-	top: 14%;
-}
-
-.minuteHand {
-	position: absolute;
-	left: calc(50% - 11.75px);
-	top: 16%;
-}
-
-.hourHand {
-	position: absolute;
-	left: calc(50% - 15.25px);
-	top: 32%;
 }
 
 .center {

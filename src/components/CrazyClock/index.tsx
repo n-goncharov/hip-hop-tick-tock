@@ -7,12 +7,18 @@ const CrazyClock = ({ setTimerActive, stopAudio }: any) => {
 		setTimerActive(false);
 	};
 
+	const hourHand = <div className={styles.hourHand}>AAAAA!</div>;
+	const minuteHand = <div className={styles.minuteHand}>AAAAAAAA!</div>;
+	const secondHand = <div className={styles.secondHand}>AAAAAAAAAAAAAAA!</div>;
+
 	return (
 		<>
-			<Clock frameRate={1} />
-
-			<button
-				className={styles.stopTimer}
+			<Clock
+				frameRate={1}
+				hourHand={hourHand}
+				minuteHand={minuteHand}
+				secondHand={secondHand}
+				buttonSrc='/img/stop-timer-button.svg'
 				onClick={handleClick}
 			/>
 		</>

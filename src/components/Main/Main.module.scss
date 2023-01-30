@@ -9,6 +9,7 @@
 	width: 100%;
 
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	transition: width 1s;
@@ -16,4 +17,33 @@
 	&_short {
 		width: math.div(1220px, 1920px) * 100 + vw;
 	}
+}
+
+.currentTimer {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+
+	&_visible {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.secondHand {
+	position: absolute;
+	left: calc(50% - 6px);
+	top: 14%;
+}
+
+.minuteHand {
+	position: absolute;
+	left: calc(50% - 11.75px);
+	top: 16%;
+}
+
+.hourHand {
+	position: absolute;
+	left: calc(50% - 15.25px);
+	top: 32%;
 }

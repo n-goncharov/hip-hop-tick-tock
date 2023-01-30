@@ -2,7 +2,7 @@ import styles from './TimerItem.module.scss'
 import ListItemContent from "../ListItemContent";
 import { useEffect } from 'react';
 
-const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef }: any) => {
+const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef, timerIdRef, timerDateRef }: any) => {
 	useEffect(() => {
 		let timeoutId: any;
 
@@ -42,6 +42,9 @@ const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, set
 
 							return timerList.filter((item) => item.id !== id)
 						});
+
+						timerIdRef.current = id;
+						timerDateRef.current = date;
 
 						setTimerActive(true);
 					}, ms);

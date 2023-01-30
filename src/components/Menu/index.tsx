@@ -9,7 +9,7 @@ import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
 import { memo, useMemo, useRef } from 'react';
 
-const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef }: any) => {
+const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef, timerIdRef, timerDateRef }: any) => {
 	const openAddTimerModal = () => {
 		setTimerTitle('');
 		setTimerDate('');
@@ -42,6 +42,9 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 
 			setTimerActive={setTimerActive}
 			audioRef={audioRef}
+
+			timerIdRef={timerIdRef}
+			timerDateRef={timerDateRef}
 		/>
 	)), [timerList]);
 

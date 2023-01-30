@@ -7,5 +7,54 @@
 	color: white;
 	font-size: 26px;
 	font-weight: bold;
-	z-index: 2;
+}
+
+.hourHand,
+.minuteHand,
+.secondHand {
+	font-weight: 700;
+}
+
+.hourHand {
+	font-size: 48px;
+	background: linear-gradient(180deg, #0057FF 0%, #00FFD1 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+	position: absolute;
+	left: calc(50% - 40px);
+	top: 45%;
+}
+
+.minuteHand {
+	font-size: 36px;
+
+	background: linear-gradient(180deg, #FF0000 0%, #FFE600 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+	position: absolute;
+	left: calc(50% - 40px);
+	top: 45%;
+}
+
+.secondHand {
+	font-size: 24px;
+
+	background: linear-gradient(180deg, #4e43e1 0%, #d534ba 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+	position: absolute;
+	left: calc(50% - 40px);
+	top: 47%;
 }

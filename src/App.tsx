@@ -57,11 +57,14 @@ const App = () => {
 
   const [isTimerActive, setTimerActive] = useState(false);
 
-  let audioRef = useRef<HTMLAudioElement>();
+  const audioRef = useRef<HTMLAudioElement>();
 
   const stopAudio = () => {
     audioRef.current?.pause();
   };
+
+  const timerIdRef = useRef<any>();
+  const timerDateRef = useRef<any>();
 
   return (
     <>
@@ -94,6 +97,9 @@ const App = () => {
 
         audioRef={audioRef}
         stopAudio={stopAudio}
+
+        timerIdRef={timerIdRef}
+        timerDateRef={timerDateRef}
       />
 
       <AddTimerModal

@@ -1,11 +1,6 @@
-import { useEffect } from "react";
 import Button from "../Button";
 
 const RecordButton = ({ onClick }: any) => {
-	useEffect(() => {
-		//console.log('RecordButton');
-	});
-
 	return (
 		<Button
 			title='записать'
@@ -13,6 +8,6 @@ const RecordButton = ({ onClick }: any) => {
 			onClick={onClick}
 		/>
 	);
-}
+};
 
 export default RecordButton;

@@ -1,4 +1,4 @@
-import Clock from '../Clock'
+import Clock from '../Clock';
 import styles from './CrazyClock.module.scss';
 
 const CrazyClock = ({ setTimerActive, stopAudio }: any) => {
@@ -17,6 +17,6 @@ const CrazyClock = ({ setTimerActive, stopAudio }: any) => {
 			/>
 		</>
 	);
-}
+};
 
 export default CrazyClock;

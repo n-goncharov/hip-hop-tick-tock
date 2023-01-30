@@ -1,11 +1,6 @@
-import { useEffect } from "react";
 import TimerModal from "../TimerModal";
 
-const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, editTimerId, playAudio, timerTimeoutId }: any) => {
-	useEffect(() => {
-		// console.log('EditTimerModal');
-	});
-
+const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, editTimerId }: any) => {
 	const handleEditTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
 
@@ -24,16 +19,13 @@ const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, tr
 			const request = timers.put(timer, timer.id);
 
 			request.onsuccess = () => {
-				console.log('Timer изменён', request.result);
+				console.log(`Timer ${request.result} changed`);
 			};
 
 			request.onerror = () => {
-				console.log('Ошибка', request.error);
+				console.log('Error: ', request.error);
 			};
 		};
-
-		clearTimeout(timerTimeoutId.current);
-		playAudio(timerDate, trackId);
 
 		setTimerList((timerList: any) => {
 			const timerListCopy = [...timerList];

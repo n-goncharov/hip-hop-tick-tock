@@ -1,11 +1,6 @@
-import { useEffect } from 'react';
 import styles from './Button.module.scss';
 
 const Button = ({ title, name, onClick }: any) => {
-	useEffect(() => {
-		// console.log('Button');
-	});
-
 	return (
 		<div
 			className={styles.button}
@@ -20,6 +15,6 @@ const Button = ({ title, name, onClick }: any) => {
 			<span className={styles.title}>{title}</span>
 		</div>
 	);
-}
+};
 
 export default Button;

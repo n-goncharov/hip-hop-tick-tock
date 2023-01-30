@@ -1,11 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './EditTrackInput.module.scss';
 
 const EditTrackInput = ({ id, title, src, setTrackList, setTrackEdit }: any) => {
-	useEffect(() => {
-		// console.log('EditTrackInput');
-	});
-
 	const [titleInput, setTitleInput] = useState(title);
 
 	const onKeyDown = (e: any) => {
@@ -18,8 +14,6 @@ const EditTrackInput = ({ id, title, src, setTrackList, setTrackEdit }: any) => 
 				src
 			};
 
-			console.log(id);
-
 			openRequest.onsuccess = () => {
 				const db = openRequest.result;
 				const transaction = db.transaction('tracks', 'readwrite');
@@ -28,11 +22,11 @@ const EditTrackInput = ({ id, title, src, setTrackList, setTrackEdit }: any) => 
 				const request = tracks.put(track, id);
 
 				request.onsuccess = () => {
-					console.log('Track изменён', request.result);
+					console.log(`Track ${request.result} changed`);
 				};
 
 				request.onerror = () => {
-					console.log('Ошибка', request.error);
+					console.log('Error: ', request.error);
 				};
 			};
 

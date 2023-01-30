@@ -1,12 +1,8 @@
 import styles from './ListBox.module.scss';
 import cn from "classnames";
-import { memo, useEffect, useState } from "react";
+import { memo, useState } from "react";
 
 const ListBox = memo(({ title, buttons, items }: any) => {
-	useEffect(() => {
-		//console.log('ListBox');
-	});
-
 	const [isListActive, setListActive] = useState(false);
 
 	return (

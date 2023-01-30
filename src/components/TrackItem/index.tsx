@@ -1,14 +1,9 @@
-import styles from './TrackItem.module.scss'
+import styles from './TrackItem.module.scss';
 import ListItemContent from "../ListItemContent";
-import { useEffect, useState } from 'react';
-import EditListItem from '../EditTrackInput';
+import { useState } from 'react';
 import EditTrackInput from '../EditTrackInput';
 
 const TrackItem = ({ id, title, src, setTrackList }: any) => {
-	useEffect(() => {
-		//console.log('TrackItem');
-	});
-
 	const [isTrackEdit, setTrackEdit] = useState(true);
 
 	const handleRemoveTrack = (e: any) => {
@@ -71,6 +66,6 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 			</li>
 		</>
 	);
-}
+};
 
 export default TrackItem;

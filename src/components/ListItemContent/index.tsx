@@ -1,11 +1,6 @@
-import { useEffect } from 'react';
 import styles from './ListItemContent.module.scss';
 
 const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
-	useEffect(() => {
-		// console.log('ListItemContent');
-	});
-
 	return (
 		<div className={styles.listItemContent}>
 			<div className={styles.title}>

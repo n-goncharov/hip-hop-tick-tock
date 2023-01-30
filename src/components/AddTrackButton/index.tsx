@@ -1,12 +1,7 @@
-import styles from './AddTrackButton.module.scss'
-import { useEffect } from "react";
+import styles from './AddTrackButton.module.scss';
 import Button from '../Button';
 
 const AddTrackButton = ({ setTrackList }: any) => {
-	useEffect(() => {
-		// console.log('AddTrackButton');
-	});
-
 	const handleAddTrack = (e: any) => {
 		const file = e.target.files[0];
 
@@ -31,11 +26,11 @@ const AddTrackButton = ({ setTrackList }: any) => {
 				const request = tracks.add(track, track.id);
 
 				request.onsuccess = () => {
-					console.log('Track добавлен в хранилище', request.result);
+					console.log(`Track ${request.result} added to indexedDB`);
 				};
 
 				request.onerror = () => {
-					console.log('Ошибка', request.error);
+					console.log('Error: ', request.error);
 				};
 
 				setTrackList((trackList: any) => [...trackList, track]);
@@ -66,6 +61,6 @@ const AddTrackButton = ({ setTrackList }: any) => {
 			</label>
 		</>
 	);
-}
+};
 
 export default AddTrackButton;

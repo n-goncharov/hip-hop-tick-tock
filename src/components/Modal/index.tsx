@@ -1,12 +1,7 @@
-import { useEffect } from 'react';
 import styles from './Modal.module.scss';
 import cn from 'classnames'
 
 const Modal = ({ title, isModalActive, setModalActive, children }: any) => {
-	useEffect(() => {
-		// console.log('Modal');
-	});
-
 	return (
 		<div
 			className={cn(styles.modal, { [styles.modal_visible]: isModalActive })}
@@ -24,6 +19,6 @@ const Modal = ({ title, isModalActive, setModalActive, children }: any) => {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Modal;

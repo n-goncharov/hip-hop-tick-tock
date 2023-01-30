@@ -6,10 +6,6 @@ import EditTimerModal from "./components/EditTimerModal";
 import RecordTrackModal from "./components/RecordTrackModal";
 
 const App = () => {
-  useEffect(() => {
-    // console.log('App');
-  });
-
   const [isMenuActive, setMenuStatus] = useState(false);
 
   const [isAddTimerModalActive, setAddTimerModalActive] = useState(false);
@@ -61,39 +57,10 @@ const App = () => {
 
   const [isTimerActive, setTimerActive] = useState(false);
 
-  const audio = useRef<HTMLAudioElement>();
-  const timerTimeoutId = useRef<any>();
-
-  const playAudio = (timerDate: any, trackId: any) => {
-		const openRequest = indexedDB.open("db", 1);
-
-		openRequest.onsuccess = () => {
-			const db = openRequest.result;
-			const transactionTrack = db.transaction("tracks", "readwrite");
-
-			const tracks = transactionTrack.objectStore("tracks");
-			const requestTracks = tracks.getAll();
-
-			requestTracks.onsuccess = () => {
-				const date = new Date(timerDate);
-				const ms = +date - Date.now();
-
-				const track = requestTracks.result.find((track: any) => track.id === trackId);
-				const src = track.src;
-
-				if (ms >= 0) {
-					timerTimeoutId.current = setTimeout(() => {
-						audio.current = new Audio(src);
-						audio.current.play();
-						setTimerActive(true);
-					}, ms);
-				}
-			};
-		};
-  };
+  let audioRef = useRef<HTMLAudioElement>();
 
   const stopAudio = () => {
-    audio.current?.pause();
+    audioRef.current?.pause();
   };
 
   return (
@@ -125,9 +92,8 @@ const App = () => {
         isTimerActive={isTimerActive}
         setTimerActive={setTimerActive}
 
-        playAudio={playAudio}
+        audioRef={audioRef}
         stopAudio={stopAudio}
-        timerTimeoutId={timerTimeoutId}
       />
 
       <AddTimerModal
@@ -170,9 +136,6 @@ const App = () => {
         editTimerId={editTimerId}
 
         setTimerActive={setTimerActive}
-
-        playAudio={playAudio}
-        timerTimeoutId={timerTimeoutId}
       />
 
       <RecordTrackModal
@@ -183,6 +146,6 @@ const App = () => {
       />
     </>
   );
-}
+};
 
 export default App;

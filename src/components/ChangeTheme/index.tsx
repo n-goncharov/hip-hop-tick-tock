@@ -1,11 +1,7 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import styles from './ChangeTheme.module.scss';
 
 const ChangeTheme = memo(() => {
-	useEffect(() => {
-		// console.log('ChangeTheme');
-	});
-
 	return (
 		<div className={styles.themeToggle}>
 			<h2>Тёмная тема</h2>

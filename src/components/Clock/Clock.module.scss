@@ -11,6 +11,8 @@ $clockSize: 600px;
 	height: $clockSize;
 
 	border-radius: 50%;
+
+	user-select: none;
 }
 
 .hourWrapper {

@@ -1,11 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import styles from "./Clock.module.scss"
 
-const Clock = memo(({frameRate, }: any) => {
-	useEffect(() => {
-		// console.log('Clock');
-	});
-
+const Clock = memo(({ frameRate, }: any) => {
 	const date = new Date();
 	const hours = date.getHours();
 	const minutes = date.getMinutes();
@@ -25,14 +21,6 @@ const Clock = memo(({frameRate, }: any) => {
 		const timerId = setInterval(updateTime, frameRate);
 		return () => clearInterval(timerId);
 	}, []);
-
-	// const updateMinuteHand = () => {
-	// 	setMinutesDegree()
-	// }
-
-	// useEffect(() => {
-
-	// }, [minutesDegree])
 
 	return (
 		<div className={styles.clock}>

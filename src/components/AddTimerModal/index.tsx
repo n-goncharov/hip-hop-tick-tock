@@ -1,11 +1,7 @@
 import TimerModal from "../TimerModal";
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 
 const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId }: any) => {
-	useEffect(() => {
-		// console.log('AddTimerModal');
-	});
-
 	const handleAddTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
 
@@ -24,11 +20,11 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 			const request = timers.add(timer, timer.id);
 
 			request.onsuccess = () => {
-				console.log('Timer добавлен в хранилище', request.result);
+				console.log(`Timer ${request.result} added to indexedDB`);
 			};
 
 			request.onerror = () => {
-				console.log('Ошибка', request.error);
+				console.log('Error: ', request.error);
 			};
 
 			setTimerList((timerList: any) => [...timerList, timer]);

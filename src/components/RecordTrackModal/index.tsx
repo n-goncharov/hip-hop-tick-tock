@@ -1,12 +1,8 @@
 import styles from './RecordTrackModal.module.scss'
 import Modal from "../Modal";
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 
 const RecordTrackModal = memo(({ title, isModalActive, setModalActive }: any) => {
-	useEffect(() => {
-		//console.log('RecordTrackModal');
-	});
-
 	return (
 		<Modal
 			title={title}

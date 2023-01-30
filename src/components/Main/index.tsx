@@ -1,15 +1,11 @@
 import styles from './Main.module.scss';
 import Clock from "../Clock";
 import Menu from "../Menu";
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import cn from 'classnames';
 import CrazyClock from '../CrazyClock';
 
-const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, isTimerActive, setTimerActive, playAudio, stopAudio, timerTimeoutId }: any) => {
-	useEffect(() => {
-		// console.log('Main');
-	});
-
+const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, isTimerActive, setTimerActive, audioRef, stopAudio }: any) => {
 	const clock = () => {
 		if (isTimerActive) {
 			return <CrazyClock
@@ -48,8 +44,7 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 
 				setTimerActive={setTimerActive}
 
-				playAudio={playAudio}
-				timerTimeoutId={timerTimeoutId}
+				audioRef={audioRef}
 			/>
 		</main>
 	);

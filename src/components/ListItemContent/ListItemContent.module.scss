@@ -18,6 +18,8 @@
 	display: flex;
 	justify-content: center;
 	gap: 15px;
+
+	user-select: none;
 }
 
 .button {

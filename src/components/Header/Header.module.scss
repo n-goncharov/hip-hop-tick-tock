@@ -9,7 +9,7 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	justify-content: space-between;
 	padding-left: 100px;
 	height: menu.$top;
-	border-bottom: 1px solid #C8C8C8;
+	border-bottom: 1px solid var(--border-color);
 	align-items: center;
 	box-sizing: border-box;
 }
@@ -28,7 +28,6 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	padding: 0;
 	width: 40px;
 	height: 40px;
-	background-color: #fff;
 	border-radius: 50%;
 	transform: translateX(calc($burgerOffset + 20px));
 	transition: transform 1s, background-color 1s;

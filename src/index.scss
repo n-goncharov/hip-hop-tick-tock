@@ -15,3 +15,23 @@ h1, h2, h3 {
 h2 {
 	font-size: 24px;
 }
+
+:root[data-theme="light"] {
+  --accent-color: #fafafa;
+	--color: black;
+	--border-color: #C8C8C8;
+	--arrow-name: 'arrow.png';
+}
+
+:root[data-theme="dark"] {
+  --accent-color: #222222;
+	--color: white;
+	--menu-color: #2B2A2A;
+	--border-color: #434343;
+	--arrow-name: 'arrow-white.png';
+}
+
+body {
+  background: var(--accent-color);
+	color: var(--color);
+}

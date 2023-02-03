@@ -10,14 +10,17 @@
 	right: 0;
 	bottom: 0;
 	width: menu.$width + vw;
-	border-left: 1px solid #C8C8C8;
+	border-left: 1px solid var(--border-color);
 	box-sizing: border-box;
-	background-color: #ffffff;
 	padding: 40px;
 	transform: translateX(100%);
 	transition: transform 1s;
+
+	background-color: var(--menu-color);
 
 	&Active {
 		transform: translateX(0);
 	}
 }
+
+

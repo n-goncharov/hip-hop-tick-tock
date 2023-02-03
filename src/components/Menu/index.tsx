@@ -1,6 +1,6 @@
 import styles from './Menu.module.scss';
 import cn from "classnames";
-import ChangeTheme from '../ChangeTheme';
+import Toggle from '../Toggle';
 import ListBox from '../ListBox';
 import AddTrackButton from '../AddTrackButton';
 import RecordButton from '../RecordButton';
@@ -8,6 +8,7 @@ import TrackItem from '../TrackItem';
 import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
 import { memo, useMemo, useRef } from 'react';
+import { ThemeContext, themes } from '../../contexts/ThemeContext';
 
 const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef, timerIdRef, timerDateRef }: any) => {
 	const openAddTimerModal = () => {
@@ -73,7 +74,16 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 	return (
 		<aside className={cn(styles.menu, { [styles.menuActive]: isMenuActive })}>
 
-			<ChangeTheme />
+			<ThemeContext.Consumer>
+				{({ theme, setTheme }: any) => (
+					<Toggle
+						onChange={() => {
+							if (theme === themes.light) setTheme(themes.dark)
+							if (theme === themes.dark) setTheme(themes.light)
+						}}
+					/>
+				)}
+			</ThemeContext.Consumer>
 
 			<ListBox
 				title='Мои таймеры'

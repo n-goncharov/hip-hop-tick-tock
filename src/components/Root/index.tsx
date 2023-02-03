@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import Header from './components/Header';
-import Main from './components/Main';
-import AddTimerModal from "./components/AddTimerModal";
-import EditTimerModal from "./components/EditTimerModal";
-import RecordTrackModal from "./components/RecordTrackModal";
+import Header from '../Header';
+import Main from '../Main';
+import AddTimerModal from "../AddTimerModal";
+import EditTimerModal from "../EditTimerModal";
+import RecordTrackModal from "../RecordTrackModal";
 
 const App = () => {
   const [isMenuActive, setMenuStatus] = useState(false);

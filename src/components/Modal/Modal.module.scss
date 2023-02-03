@@ -22,7 +22,7 @@
 .content {
 	width: 655px;
 	height: 555px;
-	background-color: #fff;
+	background-color: var(--accent-color);
 	display: flex;
 	flex-direction: column;
 	gap: 15px;

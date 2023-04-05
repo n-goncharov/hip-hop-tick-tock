@@ -15,14 +15,14 @@ const RecordTrackModal = memo(({ title, isModalActive, setModalActive }: any) =>
 					type="image"
 					width={49}
 					height={49}
-					src='/img/accept-modal.png'
+					src='img/accept-modal.png'
 				/>
 
 				<input
 					type="image"
 					width={49}
 					height={49}
-					src='/img/close-modal.png'
+					src='img/close-modal.png'
 					onClick={() => setModalActive(false)}
 				/>
 			</div>

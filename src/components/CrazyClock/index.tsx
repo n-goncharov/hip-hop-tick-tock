@@ -18,7 +18,7 @@ const CrazyClock = ({ setTimerActive, stopAudio }: any) => {
 				hourHand={hourHand}
 				minuteHand={minuteHand}
 				secondHand={secondHand}
-				buttonSrc='/img/stop-timer-button.svg'
+				buttonSrc='img/stop-timer-button.svg'
 				onClick={handleClick}
 			/>
 		</>

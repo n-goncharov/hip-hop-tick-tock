@@ -8,7 +8,7 @@ const Button = ({ title, name, onClick }: any) => {
 		>
 			<img
 				className={styles.img}
-				src={`/img/${name}`}
+				src={`img/${name}`}
 				alt=""
 			/>
 

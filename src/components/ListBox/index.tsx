@@ -18,9 +18,9 @@ const ListBox = memo(({ title, buttons, items }: any) => {
 					{({ theme }: any) => {
 						let src;
 						if (theme === 'light') {
-							src = '/img/arrow.png';
+							src = 'img/arrow.png';
 						} else {
-							src = '/img/arrow-white.png';
+							src = 'img/arrow-white.png';
 						}
 
 						return (

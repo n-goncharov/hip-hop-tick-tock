@@ -13,7 +13,7 @@ const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
 					className={styles.button}
 					width={18}
 					height={18}
-					src="/img/list-item-edit.svg"
+					src="img/list-item-edit.svg"
 					id={id}
 					onClick={handleEdit}
 					alt=""
@@ -22,7 +22,7 @@ const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
 				<input
 					type="image"
 					className={styles.button}
-					src="/img/list-item-delete.svg"
+					src="img/list-item-delete.svg"
 					alt=""
 					id={id}
 					onClick={handleRemove}

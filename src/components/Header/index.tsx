@@ -14,7 +14,7 @@ const Header = memo(({ isMenuActive, setMenuStatus }: any) => {
 				<img
 					width={25}
 					height={35}
-					src="/img/burger.svg"
+					src="img/burger.svg"
 					alt=""
 				/>
 			</div>

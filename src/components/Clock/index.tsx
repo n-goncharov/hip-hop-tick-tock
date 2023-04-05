@@ -64,7 +64,7 @@ const Clock = memo(({ frameRate, hourHand, minuteHand, secondHand, buttonSrc, on
 					className={styles.center}
 					width={10}
 					height={10}
-					src="/img/center.png"
+					src="img/center.png"
 					alt=""
 				/>
 			</div>

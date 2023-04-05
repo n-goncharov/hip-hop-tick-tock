@@ -31,7 +31,7 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 						className={styles.hourHand}
 						width={30.5}
 						height={144}
-						src="/img/hour-hand.png"
+						src="img/hour-hand.png"
 						alt=""
 					/>
 				}
@@ -40,7 +40,7 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 						className={styles.minuteHand}
 						width={23.5}
 						height={275}
-						src="/img/minute-hand.png"
+						src="img/minute-hand.png"
 						alt=""
 					/>
 				}
@@ -49,11 +49,11 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 						className={styles.secondHand}
 						width={12}
 						height={274}
-						src="/img/second-hand.png"
+						src="img/second-hand.png"
 						alt=""
 					/>
 				}
-				buttonSrc='/img/add-timer-button.svg'
+				buttonSrc='img/add-timer-button.svg'
 				onClick={openAddTimerModal}
 			/>
 		);

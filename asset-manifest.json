@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hip-hop-tick-tock/static/css/main.dcdaf0ec.css",
+    "main.js": "/hip-hop-tick-tock/static/js/main.c43fdf8e.js",
+    "index.html": "/hip-hop-tick-tock/index.html",
+    "main.dcdaf0ec.css.map": "/hip-hop-tick-tock/static/css/main.dcdaf0ec.css.map",
+    "main.c43fdf8e.js.map": "/hip-hop-tick-tock/static/js/main.c43fdf8e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dcdaf0ec.css",
+    "static/js/main.c43fdf8e.js"
+  ]
+}

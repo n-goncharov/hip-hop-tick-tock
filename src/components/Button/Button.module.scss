@@ -23,6 +23,10 @@
 	&:hover {
 		background-color: rgba(141, 135, 223, 0.6);
 	}
+
+	@media screen and (max-width: 992px) {
+		font-size: 18px;
+	}
 }
 
 .img {

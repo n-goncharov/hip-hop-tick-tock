@@ -3,3 +3,11 @@
 	justify-content: space-between;
 	padding: 0 15px;
 }
+
+.title {
+	font-size: 22px;
+
+	@media screen and (max-width: 992px) {
+		font-size: 20px;
+	}
+}

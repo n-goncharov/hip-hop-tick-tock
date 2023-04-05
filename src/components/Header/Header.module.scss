@@ -2,8 +2,13 @@
 @use "../../menu";
 
 $burgerOffset: - math.div(menu.$width, 2) + vw;
+//$burgerOffset-767: - math.div(menu.$width-767, 2) + vw;
 
 .header {
+	position: sticky;
+	top: 0;
+	background-color: var(--bg-color);
+	width: 100%;
 	font-family: 'Itim', cursive;
 	display: flex;
 	justify-content: space-between;
@@ -12,12 +17,20 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	border-bottom: 1px solid var(--border-color);
 	align-items: center;
 	box-sizing: border-box;
+
+	@media screen and (max-width: 575px) {
+		padding-left: 20px;
+	}
 }
 
 .title {
 	font-size: 30px;
 	font-weight: normal;
 	color: #007BB0;
+
+	@media screen and (max-width: 575px) {
+		font-size: 25px;
+	}
 }
 
 .burger {
@@ -33,6 +46,10 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	transition: transform 1s, background-color 1s;
 
 	user-select: none;
+
+	@media screen and (max-width: 767px) {
+		transform: translateX(calc($burgerOffset + 20px));
+	}
 
 	&Active {
 		background-color: #78fdff3a;

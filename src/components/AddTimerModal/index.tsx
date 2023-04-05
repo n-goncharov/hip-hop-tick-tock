@@ -1,7 +1,6 @@
 import TimerModal from "../TimerModal";
-import { memo } from 'react';
 
-const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId }: any) => {
+const AddTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId }: any) => {
 	const handleAddTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
 
@@ -51,6 +50,6 @@ const AddTimerModal = memo(({ title, isModalActive, setModalActive, setTimerList
 
 		handleTimer={handleAddTimer}
 	/>;
-});
+};
 
 export default AddTimerModal;

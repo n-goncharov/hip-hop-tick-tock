@@ -1,12 +1,17 @@
 @use "sass:math";
 
 .main {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 	height: calc(100% - 50px);
 }
 
 .clockWrapper {
+	flex-grow: 1;
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 
 	display: flex;
 	flex-direction: column;
@@ -14,8 +19,16 @@
 	justify-content: center;
 	transition: width 1s;
 
-	&_short {
-		width: math.div(1220px, 1920px) * 100 + vw;
+	box-sizing: border-box;
+
+	@media screen and (min-width: 767px) {
+		&_short {
+			width: math.div(1220px, 1920px) * 100 + vw;
+		}
+	}
+
+	@media screen and (max-width: 575px) {
+		// justify-content: space-between;
 	}
 }
 
@@ -34,16 +47,43 @@
 	position: absolute;
 	left: calc(50% - 6px);
 	top: 14%;
+
+	@media screen and (max-width: 420px) {
+		height: 160px;
+		width: auto;
+
+		top: 20%;
+
+		left: calc(50% - 3px);
+	}
 }
 
 .minuteHand {
 	position: absolute;
 	left: calc(50% - 11.75px);
 	top: 16%;
+
+	@media screen and (max-width: 420px) {
+		height: 150px;
+		width: auto;
+
+		top: 20%;
+
+		left: calc(50% - 7px);
+	}
 }
 
 .hourHand {
 	position: absolute;
 	left: calc(50% - 15.25px);
 	top: 32%;
+
+	@media screen and (max-width: 420px) {
+		height: 100px;
+		width: auto;
+
+		top: 30%;
+
+		left: calc(50% - 11px);
+	}
 }

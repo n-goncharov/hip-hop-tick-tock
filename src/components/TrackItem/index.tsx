@@ -26,7 +26,7 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 		if (isTrackEdit) {
 			return (
 				<ListItemContent
-					title={<h3>{title}</h3>}
+					title={title}
 					id={id}
 					handleEdit={() => setTrackEdit((isTrackEdit) => !isTrackEdit)}
 					handleRemove={handleRemoveTrack}

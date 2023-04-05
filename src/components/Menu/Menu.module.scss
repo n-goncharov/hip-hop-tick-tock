@@ -1,7 +1,7 @@
 @use "../../menu";
 
 .menu {
-	position: absolute;
+	position: fixed;
 	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
@@ -10,17 +10,29 @@
 	right: 0;
 	bottom: 0;
 	width: menu.$width + vw;
+	// height: 100%;
 	border-left: 1px solid var(--border-color);
 	box-sizing: border-box;
 	padding: 40px;
 	transform: translateX(100%);
 	transition: transform 1s;
 
-	background-color: var(--menu-color);
+	background-color: var(--bg-color);
 
-	&Active {
-		transform: translateX(0);
+	@media screen and (max-width: 991px) {
+		padding: 30px;
+	}
+
+	@media screen and (max-width: 767px) {
+		padding: 20px;
+		width: 100%;
+	}
+
+	@media screen and (max-width: 575px) {
+		//padding: 20px;
 	}
 }
 
-
+.menuActive {
+	transform: translateX(0);
+}

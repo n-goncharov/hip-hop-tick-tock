@@ -85,7 +85,7 @@ const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, set
 		<li className={styles.timerItem}>
 			<ListItemContent
 				id={id}
-				title={<h3>{title}</h3>}
+				title={title}
 				handleEdit={handleEditTimer}
 				handleRemove={handleRemoveTimer}
 			/>

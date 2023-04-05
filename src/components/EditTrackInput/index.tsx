@@ -5,7 +5,7 @@ const EditTrackInput = ({ id, title, src, setTrackList, setTrackEdit }: any) => 
 	const [titleInput, setTitleInput] = useState(title);
 
 	const onKeyDown = (e: any) => {
-		if (e.keyCode === 13) {
+		if (e.code === 'Enter') {
 			const openRequest = indexedDB.open("db", 1);
 
 			const track = {

@@ -7,7 +7,6 @@ $clockSize: 600px;
 
 .clock {
 	position: relative;
-	overflow: hidden;
 	width: 100%;
 	max-width: $clockSize;
 	height: min($clockSize, 100vw);
@@ -29,6 +28,13 @@ $clockSize: 600px;
 	@media (min-width: 767px) {
 		height: min($clockSize, calc((1220 / 1920) * 100 * 1vw));
 	}
+}
+
+.handsWrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
 }
 
 .hourWrapper {

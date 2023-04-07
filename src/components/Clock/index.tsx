@@ -39,25 +39,25 @@ const Clock = memo(({ isMenuActive, frameRate, hourHand, minuteHand, secondHand,
 				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>10</div></div>
 				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>11</div></div>
 
-				<div
-					className={styles.hourHandWrapper}
-					style={{ transform: `rotate(${hoursDegree}deg)` }}
-				>
-					{hourHand}
-				</div>
-
-				<div
-					className={styles.minuteHandWrapper}
-					style={{ transform: `rotate(${minutesDegree}deg)` }}
-				>
-					{minuteHand}
-				</div>
-
-				<div
-					className={styles.secondHandWrapper}
-					style={{ transform: `rotate(${secondsDegree}deg)` }}
-				>
-					{secondHand}
+				<div className={styles.handsWrapper}>
+					<div
+						className={styles.hourHandWrapper}
+						style={{ transform: `rotate(${hoursDegree}deg)` }}
+					>
+						{hourHand}
+					</div>
+					<div
+						className={styles.minuteHandWrapper}
+						style={{ transform: `rotate(${minutesDegree}deg)` }}
+					>
+						{minuteHand}
+					</div>
+					<div
+						className={styles.secondHandWrapper}
+						style={{ transform: `rotate(${secondsDegree}deg)` }}
+					>
+						{secondHand}
+					</div>
 				</div>
 
 				<img

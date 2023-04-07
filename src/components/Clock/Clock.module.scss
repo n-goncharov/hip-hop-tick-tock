@@ -3,64 +3,48 @@
 $mainWidth: math.div(1220px, 1920px) * 100 + vw;
 
 $clockSize: 600px;
-$clockSize-991: 550px;
-$clockSize-575: 450px;
-$clockSize-420: 350px;
+
 
 .clock {
 	position: relative;
-
-	width: $clockSize;
-	height: $clockSize;
-
+	overflow: hidden;
+	width: 100%;
+	max-width: $clockSize;
+	height: min($clockSize, 100vw);
+	margin-top: auto;
+	margin-bottom: 10px;
 	border-radius: 50%;
-
 	user-select: none;
-
 	z-index: -1;
 
-	@media screen and (max-width: 991px) {
-		width: $clockSize-991;
-		height: $clockSize-991;
-	}
-
-	@media screen and (max-width: 575px) {
-		width: $clockSize-575;
-		height: $clockSize-575;
-	}
-
-	@media screen and (max-width: 420px) {
-		width: $clockSize-420;
-		height: $clockSize-420;
-	}
-
 	&Button {
+		margin-top: auto;
 		cursor: pointer;
+	}
+}
+
+.clock_menuActive {
+	height: min($clockSize, 100vw);
+
+	@media (min-width: 767px) {
+		height: min($clockSize, calc((1220 / 1920) * 100 * 1vw));
 	}
 }
 
 .hourWrapper {
 	position: absolute;
-	top: 1em;
-	left: calc(50% - 1em);
-	transform-origin: 50% calc(300px - 1em);
+	left: 50%;
+	transform-origin: 50% calc(min($clockSize, 100vw) / 2);
 	transform: rotate(0deg);
-
-	@media screen and (max-width: 991px) {
-		transform-origin: 50% calc(275px - 1em);
-	}
-
-	@media screen and (max-width: 575px) {
-		transform-origin: 50% calc(225px - 1em);
-	}
-
-	@media screen and (max-width: 420px) {
-		transform-origin: 50% calc(175px - 1em);
-	}
+	translate: -50%;
 }
 
-.hourWrapperDouble {
-	left: calc(50% - 1.5em);
+.hourWrapper_menuActive {
+	transform-origin: 50% calc(min($clockSize, 100vw) / 2);
+
+	@media (min-width: 767px) {
+		transform-origin: 50% calc(min($clockSize, calc((1220 / 1920) * 100 * 1vw)) / 2);
+	}
 }
 
 .hourWrapper:nth-child(1) {
@@ -118,8 +102,8 @@ $clockSize-420: 350px;
 
 	color: rgb(56, 183, 132);
 
-	@media screen and (max-width: 991px) {
-		font-size: 30px;
+	@media screen and (max-width: 420px) {
+		font-size: 35px;
 	}
 }
 

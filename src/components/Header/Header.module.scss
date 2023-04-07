@@ -47,6 +47,8 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 
 	user-select: none;
 
+	transition: background-color 1s;
+
 	@media screen and (max-width: 767px) {
 		transform: translateX(calc($burgerOffset + 20px));
 	}

@@ -78,9 +78,14 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 				{({ theme, setTheme }: any) => (
 					<Toggle
 						onChange={() => {
-							if (theme === themes.light) setTheme(themes.dark)
-							if (theme === themes.dark) setTheme(themes.light)
+							if (theme === themes.light) {
+								setTheme(themes.dark);
+							} else {
+								setTheme(themes.light);
+							}
 						}}
+						theme={theme}
+						themes={themes}
 					/>
 				)}
 			</ThemeContext.Consumer>

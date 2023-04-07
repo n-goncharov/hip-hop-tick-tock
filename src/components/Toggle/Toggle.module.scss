@@ -1,7 +1,7 @@
 .toggle {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	padding: 0 15px;
 }
 
 .title {
@@ -10,4 +10,42 @@
 	@media screen and (max-width: 992px) {
 		font-size: 20px;
 	}
+}
+
+.toggleButton {
+	position: relative;
+	outline: none;
+	border: 0;
+	font-family: inherit;
+	padding-left: 0;
+	padding-right: 0;
+	background-color: #fff;
+	border: 1px solid #4a4a4a;
+	box-sizing: border-box;
+	width: 60px;
+	height: 30px;
+	border-radius: 30px;
+	cursor: pointer;
+}
+
+.toggleButton::before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	box-sizing: border-box;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background-color: rgb(230, 230, 230);
+	border: 1px solid #4a4a4a;
+	transition: left 0.3s;
+}
+
+.toggleButton_active {
+	background-color: #464646;
+}
+
+.toggleButton_active::before {
+	left: 31px;
 }

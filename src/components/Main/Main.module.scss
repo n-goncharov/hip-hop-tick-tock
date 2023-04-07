@@ -2,33 +2,26 @@
 
 .main {
 	display: flex;
-	flex-direction: column;
+  flex-direction: column;
 	flex-grow: 1;
-	height: calc(100% - 50px);
 }
 
 .clockWrapper {
 	flex-grow: 1;
-	height: 100%;
 	width: 100%;
-	overflow: hidden;
-
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	transition: width 1s;
-
 	box-sizing: border-box;
+	padding-bottom: 10px;
+}
 
-	@media screen and (min-width: 767px) {
-		&_short {
-			width: math.div(1220px, 1920px) * 100 + vw;
-		}
-	}
-
-	@media screen and (max-width: 575px) {
-		// justify-content: space-between;
+.clockWrapper_menuActive {
+	@media (min-width: 767px) {
+		width: calc((1220 / 1920) * 100 * 1vw);
 	}
 }
 

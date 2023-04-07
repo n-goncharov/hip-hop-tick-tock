@@ -1,7 +1,7 @@
 import styles from './Main.module.scss';
 import Clock from "../Clock";
 import Menu from "../Menu";
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import cn from 'classnames';
 import CrazyClock from '../CrazyClock';
 
@@ -25,6 +25,7 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 
 		return (
 			<Clock
+				isMenuActive={isMenuActive}
 				frameRate={1000}
 				hourHand={
 					<img
@@ -73,7 +74,7 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 				</div>
 			</div>
 
-			<div className={cn(styles.clockWrapper, { [styles.clockWrapper_short]: isMenuActive })}>
+			<div className={cn(styles.clockWrapper, { [styles.clockWrapper_menuActive]: isMenuActive })}>
 				{clock()}
 			</div>
 

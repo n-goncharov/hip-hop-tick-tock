@@ -38,45 +38,27 @@
 
 .secondHand {
 	position: absolute;
-	left: calc(50% - 6px);
+	left: 50%;
+	transform: translateX(-50%);
 	top: 14%;
-
-	@media screen and (max-width: 420px) {
-		height: 160px;
-		width: auto;
-
-		top: 20%;
-
-		left: calc(50% - 3px);
-	}
+	width: 2%;
+	height: 46%;
 }
 
 .minuteHand {
 	position: absolute;
-	left: calc(50% - 11.75px);
+	left: 50%;
+	transform: translateX(-50%);
 	top: 16%;
-
-	@media screen and (max-width: 420px) {
-		height: 150px;
-		width: auto;
-
-		top: 20%;
-
-		left: calc(50% - 7px);
-	}
+	width: 4%;
+	height: 46%;
 }
 
 .hourHand {
 	position: absolute;
-	left: calc(50% - 15.25px);
+	left: 50%;
+	transform: translateX(-50%);
 	top: 32%;
-
-	@media screen and (max-width: 420px) {
-		height: 100px;
-		width: auto;
-
-		top: 30%;
-
-		left: calc(50% - 11px);
-	}
+	width: 5%;
+	height: 24%;
 }

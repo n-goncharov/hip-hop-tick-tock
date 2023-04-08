@@ -1,7 +1,6 @@
 {
   "name": "hip-hop-tick-tock",
   "version": "0.1.0",
-  "homepage": "https://goncharovn.github.io/hip-hop-tick-tock",
   "private": true,
   "dependencies": {
     "@types/node": "^16.18.11",

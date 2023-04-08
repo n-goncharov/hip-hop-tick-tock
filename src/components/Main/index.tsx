@@ -28,31 +28,22 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 				isMenuActive={isMenuActive}
 				frameRate={1000}
 				hourHand={
-					<img
+					<div
 						className={styles.hourHand}
-						width={30.5}
-						height={144}
-						src="img/hour-hand.png"
-						alt=""
-					/>
+					>
+					</div>
 				}
 				minuteHand={
-					<img
+					<div
 						className={styles.minuteHand}
-						width={23.5}
-						height={275}
-						src="img/minute-hand.png"
-						alt=""
-					/>
+					>
+					</div>
 				}
 				secondHand={
-					<img
+					<div
 						className={styles.secondHand}
-						width={12}
-						height={274}
-						src="img/second-hand.png"
-						alt=""
-					/>
+					>
+					</div>
 				}
 				buttonSrc='img/add-timer-button.svg'
 				onClick={openAddTimerModal}

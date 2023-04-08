@@ -27,17 +27,17 @@ const Clock = memo(({ isMenuActive, frameRate, hourHand, minuteHand, secondHand,
 		<>
 			<div className={cn(styles.clock, { [styles.clock_menuActive]: isMenuActive })}>
 				<div className={styles.hourWrapper}><div className={styles.hour}>12</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>1</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>2</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>3</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>4</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>5</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>6</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>7</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>8</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>9</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>10</div></div>
-				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>11</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>1</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>2</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>3</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>4</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>5</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>6</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>7</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>8</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>9</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>10</div></div>
+				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive })}><div className={styles.hour}>11</div></div>
 
 				<div className={styles.handsWrapper}>
 					<div
@@ -60,13 +60,10 @@ const Clock = memo(({ isMenuActive, frameRate, hourHand, minuteHand, secondHand,
 					</div>
 				</div>
 
-				<img
+				<div
 					className={styles.center}
-					width={10}
-					height={10}
-					src="img/center.png"
-					alt=""
-				/>
+				>
+				</div>
 			</div>
 
 			<div

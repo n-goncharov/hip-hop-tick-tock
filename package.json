@@ -1,6 +1,7 @@
 {
   "name": "hip-hop-tick-tock",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@types/node": "^16.18.11",

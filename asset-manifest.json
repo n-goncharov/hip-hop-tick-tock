@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hip-hop-tick-tock/static/css/main.4f8ad204.css",
-    "main.js": "/hip-hop-tick-tock/static/js/main.218c06a3.js",
-    "index.html": "/hip-hop-tick-tock/index.html",
-    "main.4f8ad204.css.map": "/hip-hop-tick-tock/static/css/main.4f8ad204.css.map",
-    "main.218c06a3.js.map": "/hip-hop-tick-tock/static/js/main.218c06a3.js.map"
+    "main.css": "./static/css/main.d5ef7b84.css",
+    "main.js": "./static/js/main.218c06a3.js",
+    "index.html": "./index.html",
+    "main.d5ef7b84.css.map": "./static/css/main.d5ef7b84.css.map",
+    "main.218c06a3.js.map": "./static/js/main.218c06a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f8ad204.css",
+    "static/css/main.d5ef7b84.css",
     "static/js/main.218c06a3.js"
   ]
 }

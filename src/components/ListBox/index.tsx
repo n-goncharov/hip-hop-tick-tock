@@ -1,9 +1,8 @@
 import styles from './ListBox.module.scss';
 import cn from "classnames";
-import { memo, useState } from "react";
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { useState } from "react";
 
-const ListBox = memo(({ title, buttons, items }: any) => {
+const ListBox = ({ title, buttons, items }: any) => {
 	const [isListActive, setListActive] = useState(false);
 
 	return (
@@ -14,29 +13,10 @@ const ListBox = memo(({ title, buttons, items }: any) => {
 			>
 				<h2 className={styles.title}>{title}</h2>
 
-				<ThemeContext.Consumer>
-					{({ theme }: any) => {
-						let src;
-						if (theme === 'light') {
-							src = 'img/arrow.png';
-						} else {
-							src = 'img/arrow-white.png';
-						}
-
-						return (
-							<img
-								className={cn(styles.arrow, { [styles.arrowOpen]: isListActive })}
-								width={18}
-								height={18}
-								src={src}
-								alt=""
-							/>
-						);
-					}
-					}
-				</ThemeContext.Consumer>
-
-
+				<div
+					className={cn(styles.arrow, { [styles.arrowOpen]: isListActive })}
+				>
+				</div>
 			</summary>
 
 			<div className={styles.buttonsContainer}>
@@ -47,6 +27,6 @@ const ListBox = memo(({ title, buttons, items }: any) => {
 			</ul>
 		</details>
 	);
-});
+};
 
 export default ListBox;

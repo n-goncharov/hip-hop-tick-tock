@@ -3,14 +3,12 @@ import Header from '../Header';
 import Main from '../Main';
 import AddTimerModal from "../AddTimerModal";
 import EditTimerModal from "../EditTimerModal";
-import RecordTrackModal from "../RecordTrackModal";
 
 const App = () => {
   const [isMenuActive, setMenuStatus] = useState(false);
 
   const [isAddTimerModalActive, setAddTimerModalActive] = useState(false);
   const [isEditTimerModalActive, setEditTimerModalActive] = useState(false);
-  const [isTrackModalActive, setTrackModalActive] = useState(false);
 
   const [timerList, setTimerList] = useState<any[]>([]);
   const [trackList, setTrackList] = useState<any[]>([]);
@@ -76,7 +74,6 @@ const App = () => {
       <Main
         isMenuActive={isMenuActive}
 
-        setTrackModalActive={setTrackModalActive}
         setAddTimerModalActive={setAddTimerModalActive}
         setEditTimerModalActive={setEditTimerModalActive}
 
@@ -142,13 +139,6 @@ const App = () => {
         editTimerId={editTimerId}
 
         setTimerActive={setTimerActive}
-      />
-
-      <RecordTrackModal
-        title='Записать свой звук'
-
-        isModalActive={isTrackModalActive}
-        setModalActive={setTrackModalActive}
       />
     </>
   );

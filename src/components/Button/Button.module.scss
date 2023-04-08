@@ -1,9 +1,6 @@
 .button {
-	background-color: rgba(72, 191, 255, 0.6);
-
 	box-sizing: border-box;
 	border: none;
-	border-radius: 5px;
 
 	width: 180px;
 	height: 33px;
@@ -15,13 +12,19 @@
 
 	padding-left: 15px;
 
+	font-family: inherit;
 	font-size: 20px;
 	cursor: pointer;
 
-	transition: background-color 0.3s;
+	border: 1px solid var(--border-color);
+	border-radius: 5px;
+	background-color: var(--accent-color);
 
-	&:hover {
-		background-color: rgba(141, 135, 223, 0.6);
+	@media (hover: hover) {
+		&:hover {
+			background-color: rgb(61, 195, 141);
+			transition: background-color 0.2s;
+		}
 	}
 
 	@media screen and (max-width: 992px) {
@@ -34,6 +37,4 @@
 	height: 16px;
 }
 
-.title {
-
-}
+.title {}

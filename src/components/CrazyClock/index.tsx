@@ -1,7 +1,7 @@
 import Clock from '../Clock';
 import styles from './CrazyClock.module.scss';
 
-const CrazyClock = ({ setTimerActive, stopAudio }: any) => {
+const CrazyClock = ({ isMenuActive, setTimerActive, stopAudio }: any) => {
 	const handleClick = () => {
 		stopAudio();
 		setTimerActive(false);
@@ -9,11 +9,12 @@ const CrazyClock = ({ setTimerActive, stopAudio }: any) => {
 
 	const hourHand = <div className={styles.hourHand}>AAAAA!</div>;
 	const minuteHand = <div className={styles.minuteHand}>AAAAAAAA!</div>;
-	const secondHand = <div className={styles.secondHand}>AAAAAAAAAAAAAAA!</div>;
+	const secondHand = <div className={styles.secondHand}>AAAAAAAAAAАAAAAA!</div>;
 
 	return (
 		<>
 			<Clock
+				isMenuActive={isMenuActive}
 				frameRate={1}
 				hourHand={hourHand}
 				minuteHand={minuteHand}

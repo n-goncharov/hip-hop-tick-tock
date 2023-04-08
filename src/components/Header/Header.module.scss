@@ -2,7 +2,6 @@
 @use "../../menu";
 
 $burgerOffset: - math.div(menu.$width, 2) + vw;
-//$burgerOffset-767: - math.div(menu.$width-767, 2) + vw;
 
 .header {
 	position: sticky;
@@ -18,8 +17,9 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	align-items: center;
 	box-sizing: border-box;
 
-	@media screen and (max-width: 575px) {
+	@media screen and (max-width: 767px) {
 		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
 
@@ -28,12 +28,13 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	font-weight: normal;
 	color: #007BB0;
 
-	@media screen and (max-width: 575px) {
+	@media (max-width: 575px) {
 		font-size: 25px;
 	}
 }
 
 .burger {
+	position: relative;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -43,15 +44,26 @@ $burgerOffset: - math.div(menu.$width, 2) + vw;
 	height: 40px;
 	border-radius: 50%;
 	transform: translateX(calc($burgerOffset + 20px));
-	transition: transform 0.8s, background-color 0.8s;
+	transition: transform 0.8s;
 
 	user-select: none;
 
 	@media screen and (max-width: 767px) {
-		transform: translateX(calc($burgerOffset + 20px));
+		transform: none;
 	}
+}
 
-	&Active {
-		background-color: #78fdff3a;
-	}
+.burger::before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-radius: 50%;
+	transition: width 0.8s, height 0.8s, background-color 0.8s;
+}
+
+.burgerActive::before {
+	width: 100%;
+	height: 100%;
+	background-color: #78fdff3a;
 }

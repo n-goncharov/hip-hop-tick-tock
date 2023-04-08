@@ -1,11 +1,11 @@
 import styles from './Main.module.scss';
 import Clock from "../Clock";
 import Menu from "../Menu";
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import cn from 'classnames';
 import CrazyClock from '../CrazyClock';
 
-const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, isTimerActive, setTimerActive, audioRef, stopAudio, timerIdRef, timerDateRef }: any) => {
+const Main = memo(({ isMenuActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, isTimerActive, setTimerActive, audioRef, stopAudio, timerIdRef, timerDateRef }: any) => {
 	const openAddTimerModal = () => {
 		setTimerTitle('');
 		setTimerDate('');
@@ -17,6 +17,7 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 		if (isTimerActive) {
 			return (
 				<CrazyClock
+					isMenuActive={isMenuActive}
 					setTimerActive={setTimerActive}
 					stopAudio={stopAudio}
 				/>
@@ -33,19 +34,20 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 					>
 					</div>
 				}
+
 				minuteHand={
 					<div
 						className={styles.minuteHand}
 					>
 					</div>
 				}
+
 				secondHand={
 					<div
 						className={styles.secondHand}
 					>
 					</div>
 				}
-				buttonSrc='img/add-timer-button.svg'
 				onClick={openAddTimerModal}
 			/>
 		);
@@ -53,15 +55,13 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 
 	return (
 		<main className={styles.main}>
-			<div className={cn(styles.currentTimer, { [styles.currentTimer_visible]: isTimerActive })}>
-				Пришло время!
-
+			<div className={cn(styles.currentTimer, { [styles.currentTimer_active]: isTimerActive })}>
 				<div>
-					{timerIdRef.current}
+					Таймер: {timerIdRef.current}
 				</div>
 
 				<div>
-					{timerDateRef.current}
+					Время: {timerDateRef.current}
 				</div>
 			</div>
 
@@ -72,7 +72,6 @@ const Main = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 			<Menu
 				isMenuActive={isMenuActive}
 
-				setTrackModalActive={setTrackModalActive}
 				setAddTimerModalActive={setAddTimerModalActive}
 				setEditTimerModalActive={setEditTimerModalActive}
 

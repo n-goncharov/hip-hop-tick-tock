@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './Toggle.module.scss';
 import cn from 'classnames';
 

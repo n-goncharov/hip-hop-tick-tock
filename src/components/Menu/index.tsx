@@ -3,14 +3,13 @@ import cn from "classnames";
 import Toggle from '../Toggle';
 import ListBox from '../ListBox';
 import AddTrackButton from '../AddTrackButton';
-import RecordButton from '../RecordButton';
 import TrackItem from '../TrackItem';
 import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
-import { memo, useMemo, useRef } from 'react';
+import { useRef } from 'react';
 import { ThemeContext, themes } from '../../contexts/ThemeContext';
 
-const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef, timerIdRef, timerDateRef }: any) => {
+const Menu = ({ isMenuActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef, timerIdRef, timerDateRef }: any) => {
 	const openAddTimerModal = () => {
 		setTimerTitle('');
 		setTimerDate('');
@@ -22,7 +21,7 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 		<AddTimerButton onClick={openAddTimerModal} />
 	);
 
-	const timers = useMemo(() => timerList.map((timer: any) => (
+	const timers = timerList.map((timer: any) => (
 		<TimerItem
 			key={timer.id}
 
@@ -47,21 +46,16 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 			timerIdRef={timerIdRef}
 			timerDateRef={timerDateRef}
 		/>
-	)), [timerList]);
+	));
 
 	const trackButtons = useRef([
 		<AddTrackButton
 			key='addTrackButton'
 			setTrackList={setTrackList}
 		/>,
-
-		<RecordButton
-			key='recordButton'
-			onClick={() => setTrackModalActive(true)}
-		/>
 	]);
 
-	const tracks = useMemo(() => trackList.map((track: any) => (
+	const tracks = trackList.map((track: any) => (
 		<TrackItem
 			key={track.id}
 			id={track.id}
@@ -69,7 +63,7 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 			src={track.src}
 			setTrackList={setTrackList}
 		/>
-	)), [trackList]);
+	));
 
 	return (
 		<aside className={cn(styles.menu, { [styles.menuActive]: isMenuActive })}>
@@ -103,6 +97,6 @@ const Menu = memo(({ isMenuActive, setTrackModalActive, setAddTimerModalActive, 
 			/>
 		</aside>
 	);
-});
+};
 
 export default Menu;

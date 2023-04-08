@@ -56,7 +56,6 @@ const AddTrackButton = ({ setTrackList }: any) => {
 
 				<Button
 					title='добавить'
-					name='add.png'
 				/>
 			</label>
 		</>

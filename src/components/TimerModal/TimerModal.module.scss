@@ -23,12 +23,32 @@
 }
 
 .date {
+	box-sizing: border-box;
 	height: 30px;
+	width: 100%;
 }
 
 .buttons {
 	display: flex;
-	justify-content: center;
-	gap: 240px;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 60%;
 	margin-top: auto;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media (max-width: 575px) {
+		max-width: 80%;
+	}
+}
+
+.acceptButton {
+	cursor: pointer;
+}
+
+.tracksWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	overflow-y: auto;
 }

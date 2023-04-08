@@ -4,7 +4,6 @@ $mainWidth: math.div(1220px, 1920px) * 100 + vw;
 
 $clockSize: 600px;
 
-
 .clock {
 	position: relative;
 	width: 100%;
@@ -17,17 +16,48 @@ $clockSize: 600px;
 	z-index: -1;
 	transition: height 0.8s;
 
-	&Button {
-		margin-top: auto;
-		cursor: pointer;
-	}
+	font-size: min($clockSize, 100vw);
+}
+
+.clockButton {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #006D9C;
+	margin-top: auto;
+	cursor: pointer;
+}
+
+.clockButton::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 35px;
+	height: 10px;
+	background-color: var(--bg-color);
+}
+
+.clockButton::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 10px;
+	height: 35px;
+	background-color: var(--bg-color);
 }
 
 .clock_menuActive {
 	height: min($clockSize, 100vw);
+	font-size: min($clockSize, 100vw);
 
 	@media (min-width: 767px) {
 		height: min($clockSize, calc((1220 / 1920) * 100 * 1vw));
+		font-size: min($clockSize, calc((1220 / 1920) * 100 * 1vw));
 	}
 }
 
@@ -105,14 +135,10 @@ $clockSize: 600px;
 
 .hour {
 	font-weight: 700;
-	font-size: 48px;
+	font-size: 0.08em;
 	line-height: 58px;
-
 	color: rgb(56, 183, 132);
-
-	@media screen and (max-width: 420px) {
-		font-size: 35px;
-	}
+	transition: font-size 0.8s;
 }
 
 .hourWrapper:nth-child(2)>.hour {

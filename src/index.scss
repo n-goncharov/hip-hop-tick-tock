@@ -18,27 +18,32 @@ body {
 	height: 100%;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 	margin: 0;
 }
 
 :root[data-theme="light"] {
-  --accent-color: #fafafa;
+	--accent-color: #fafafa;
 	--color: black;
 	--bg-color: #ffffff;
 	--border-color: #C8C8C8;
-	--arrow-name: 'arrow.png';
 }
 
 :root[data-theme="dark"] {
-  --accent-color: #222222;
+	--accent-color: #222222;
 	--color: white;
 	--bg-color: #2B2A2A;
 	--border-color: #434343;
-	--arrow-name: 'arrow-white.png';
 }
 
 body {
-  background: var(--accent-color);
+	background: var(--accent-color);
 	color: var(--color);
+	-webkit-tap-highlight-color: transparent;
+}
+
+input {
+	outline: none;
 }

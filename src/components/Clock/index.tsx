@@ -1,8 +1,8 @@
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Clock.module.scss";
 import cn from 'classnames';
 
-const Clock = memo(({ isMenuActive, frameRate, hourHand, minuteHand, secondHand, buttonSrc, onClick }: any) => {
+const Clock = ({ isMenuActive, frameRate, hourHand, minuteHand, secondHand, onClick }: any) => {
 	const date = new Date();
 	const hours = date.getHours();
 	const minutes = date.getMinutes();
@@ -46,12 +46,14 @@ const Clock = memo(({ isMenuActive, frameRate, hourHand, minuteHand, secondHand,
 					>
 						{hourHand}
 					</div>
+
 					<div
 						className={styles.minuteHandWrapper}
 						style={{ transform: `rotate(${minutesDegree}deg)` }}
 					>
 						{minuteHand}
 					</div>
+
 					<div
 						className={styles.secondHandWrapper}
 						style={{ transform: `rotate(${secondsDegree}deg)` }}
@@ -70,10 +72,9 @@ const Clock = memo(({ isMenuActive, frameRate, hourHand, minuteHand, secondHand,
 				className={styles.clockButton}
 				onClick={onClick}
 			>
-				<img src={buttonSrc} alt="" />
 			</div>
 		</>
 	);
-});
+};
 
 export default Clock;

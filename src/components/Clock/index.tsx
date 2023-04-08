@@ -26,7 +26,7 @@ const Clock = memo(({ isMenuActive, frameRate, hourHand, minuteHand, secondHand,
 	return (
 		<>
 			<div className={cn(styles.clock, { [styles.clock_menuActive]: isMenuActive })}>
-				<div className={cn(styles.hourWrapper, styles.hourWrapperDouble)}><div className={styles.hour}>12</div></div>
+				<div className={styles.hourWrapper}><div className={styles.hour}>12</div></div>
 				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>1</div></div>
 				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>2</div></div>
 				<div className={cn(styles.hourWrapper, { [styles.hourWrapper_menuActive]: isMenuActive})}><div className={styles.hour}>3</div></div>

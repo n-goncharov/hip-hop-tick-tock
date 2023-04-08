@@ -15,6 +15,7 @@ $clockSize: 600px;
 	border-radius: 50%;
 	user-select: none;
 	z-index: -1;
+	transition: height 0.8s;
 
 	&Button {
 		margin-top: auto;
@@ -43,6 +44,7 @@ $clockSize: 600px;
 	transform-origin: 50% calc(min($clockSize, 100vw) / 2);
 	transform: rotate(0deg);
 	translate: -50%;
+	transition: transform-origin 0.8s;
 }
 
 .hourWrapper_menuActive {

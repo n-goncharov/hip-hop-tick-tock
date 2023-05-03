@@ -1,11 +1,51 @@
 import styles from './Main.module.scss';
 import Clock from "../Clock";
 import Menu from "../Menu";
-import { memo } from 'react';
 import cn from 'classnames';
 import CrazyClock from '../CrazyClock';
+import { FC, MutableRefObject } from 'react';
+import ITrack from "../../shared/interfaces/track";
+import ITimer from "../../shared/interfaces/timer";
 
-const Main = memo(({ isMenuActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, isTimerActive, setTimerActive, audioRef, stopAudio, timerIdRef, timerDateRef }: any) => {
+interface IMainProps {
+	isMenuActive: boolean;
+	setAddTimerModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	setEditTimerModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	timerList: ITimer[];
+	setTimerList: React.Dispatch<React.SetStateAction<ITimer[]>>;
+	trackList: ITrack[];
+	setTrackList: React.Dispatch<React.SetStateAction<ITrack[]>>;
+	setTimerTitle: React.Dispatch<React.SetStateAction<string>>;
+	setTimerDate: React.Dispatch<React.SetStateAction<string>>;
+	setTrackId: React.Dispatch<React.SetStateAction<string>>;
+	setEditTimerId: React.Dispatch<React.SetStateAction<string>>;
+	isTimerActive: boolean;
+	setTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
+	audioRef: MutableRefObject<HTMLAudioElement | undefined>;
+	stopAudio: () => void;
+	timerIdRef: MutableRefObject<string>;
+	timerDateRef: MutableRefObject<string>;
+}
+
+const Main: FC<IMainProps> = ({
+	isMenuActive,
+	setAddTimerModalActive,
+	setEditTimerModalActive,
+	timerList,
+	setTimerList,
+	trackList,
+	setTrackList,
+	setTimerTitle,
+	setTimerDate,
+	setTrackId,
+	setEditTimerId,
+	isTimerActive,
+	setTimerActive,
+	audioRef,
+	stopAudio,
+	timerIdRef,
+	timerDateRef
+}) => {
 	const openAddTimerModal = () => {
 		setTimerTitle('');
 		setTimerDate('');
@@ -61,7 +101,7 @@ const Main = memo(({ isMenuActive, setAddTimerModalActive, setEditTimerModalActi
 				</div>
 
 				<div>
-					Время: {timerDateRef.current}
+					Время: <span>{timerDateRef.current?.toString()}</span>
 				</div>
 			</div>
 
@@ -95,6 +135,6 @@ const Main = memo(({ isMenuActive, setAddTimerModalActive, setEditTimerModalActi
 			/>
 		</main>
 	);
-});
+};
 
 export default Main;

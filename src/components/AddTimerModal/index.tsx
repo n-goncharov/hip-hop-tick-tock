@@ -1,6 +1,40 @@
+import { FC } from "react";
 import TimerModal from "../TimerModal";
+import ITrack from "../../shared/interfaces/track"
+import ITimer from "../../shared/interfaces/timer"
 
-const AddTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId }: any) => {
+interface IAddTimerModalProps {
+	title: string;
+
+	isModalActive: boolean;
+	setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+
+	setTimerList: React.Dispatch<React.SetStateAction<ITimer[]>>;
+
+	trackList: ITrack[];
+
+	timerTitle: string;
+	timerDate: string;
+	trackId: string;
+
+	setTimerTitle: React.Dispatch<React.SetStateAction<string>>;
+	setTimerDate: React.Dispatch<React.SetStateAction<string>>;
+	setTrackId: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const AddTimerModal: FC<IAddTimerModalProps> = ({
+	title,
+	isModalActive,
+	setModalActive,
+	setTimerList,
+	trackList,
+	timerTitle,
+	timerDate,
+	trackId,
+	setTimerTitle,
+	setTimerDate,
+	setTrackId
+}) => {
 	const handleAddTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
 
@@ -9,10 +43,10 @@ const AddTimerModal = ({ title, isModalActive, setModalActive, setTimerList, tra
 			const transaction = db.transaction('timers', 'readwrite');
 			const timers = transaction.objectStore('timers');
 
-			const timer = {
+			const timer: ITimer = {
 				id: timerTitle,
 				title: timerTitle,
-				track_id: trackId,
+				trackId: trackId,
 				date: timerDate,
 			};
 
@@ -26,7 +60,7 @@ const AddTimerModal = ({ title, isModalActive, setModalActive, setTimerList, tra
 				console.log('Error: ', request.error);
 			};
 
-			setTimerList((timerList: any) => [...timerList, timer]);
+			setTimerList((timerList) => [...timerList, timer]);
 		};
 
 		setModalActive(false);

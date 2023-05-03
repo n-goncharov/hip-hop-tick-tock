@@ -1,13 +1,44 @@
 import TimerModal from "../TimerModal";
+import ITrack from "../../shared/interfaces/track"
+import ITimer from "../../shared/interfaces/timer"
+import { FC } from "react";
 
-const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, editTimerId }: any) => {
+interface IEditTimerModal {
+	title: string;
+	isModalActive: boolean;
+	setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	setTimerList: React.Dispatch<React.SetStateAction<ITimer[]>>;
+	trackList: ITrack[];
+	timerTitle: string;
+	timerDate: string;
+	trackId: string;
+	setTimerTitle: React.Dispatch<React.SetStateAction<string>>;
+	setTimerDate: React.Dispatch<React.SetStateAction<string>>
+	setTrackId: React.Dispatch<React.SetStateAction<string>>;
+	editTimerId: string;
+}
+
+const EditTimerModal: FC<IEditTimerModal> = ({
+	title,
+	isModalActive,
+	setModalActive,
+	setTimerList,
+	trackList,
+	timerTitle,
+	timerDate,
+	trackId,
+	setTimerTitle,
+	setTimerDate,
+	setTrackId,
+	editTimerId
+}) => {
 	const handleEditTimer = () => {
 		const openRequest = indexedDB.open("db", 1);
 
-		const timer = {
+		const timer: ITimer = {
 			id: editTimerId,
 			title: timerTitle,
-			track_id: trackId,
+			trackId: trackId,
 			date: timerDate,
 		};
 
@@ -27,7 +58,7 @@ const EditTimerModal = ({ title, isModalActive, setModalActive, setTimerList, tr
 			};
 		};
 
-		setTimerList((timerList: any) => {
+		setTimerList((timerList: ITimer[]) => {
 			const timerListCopy = [...timerList];
 			const index = timerListCopy.findIndex((item) => item.id === editTimerId);
 			timerListCopy[index] = timer;

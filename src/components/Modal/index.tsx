@@ -1,7 +1,20 @@
 import styles from './Modal.module.scss';
-import cn from 'classnames'
+import cn from 'classnames';
+import { FC } from 'react';
 
-const Modal = ({ title, isModalActive, setModalActive, children }: any) => {
+interface IModalProps {
+	title: string;
+	isModalActive: boolean;
+	setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	children: React.ReactNode;
+}
+
+const Modal: FC<IModalProps> = ({
+	title,
+	isModalActive,
+	setModalActive,
+	children
+}) => {
 	return (
 		<div
 			className={cn(styles.modalOverlay, { [styles.modalOverlay_visible]: isModalActive })}

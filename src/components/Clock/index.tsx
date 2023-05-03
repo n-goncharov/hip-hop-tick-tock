@@ -1,8 +1,24 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import styles from "./Clock.module.scss";
 import cn from 'classnames';
 
-const Clock = ({ isMenuActive, frameRate, hourHand, minuteHand, secondHand, onClick }: any) => {
+interface IClockProps {
+	isMenuActive: boolean;
+	frameRate: number;
+	hourHand: React.ReactNode;
+	minuteHand: React.ReactNode;
+	secondHand: React.ReactNode;
+	onClick: () => void;
+}
+
+const Clock: FC<IClockProps> = ({
+	isMenuActive,
+	frameRate,
+	hourHand,
+	minuteHand,
+	secondHand,
+	onClick
+}) => {
 	const date = new Date();
 	const hours = date.getHours();
 	const minutes = date.getMinutes();

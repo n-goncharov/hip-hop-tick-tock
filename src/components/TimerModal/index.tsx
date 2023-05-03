@@ -1,7 +1,35 @@
 import styles from './TimerModal.module.scss'
 import Modal from "../Modal";
+import { FC } from 'react';
+import ITrack from "../../shared/interfaces/track";
 
-const TimerModal = ({ title, isModalActive, setModalActive, trackList, timerTitle, timerDate, trackId, setTimerTitle, setTimerDate, setTrackId, handleTimer }: any) => {
+interface ITimerModalProps {
+	title: string;
+	isModalActive: boolean;
+	setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	trackList: ITrack[];
+	timerTitle: string;
+	timerDate: string;
+	trackId: string;
+	setTimerTitle: React.Dispatch<React.SetStateAction<string>>;
+	setTimerDate: React.Dispatch<React.SetStateAction<string>>;
+	setTrackId: React.Dispatch<React.SetStateAction<string>>;
+	handleTimer: () => void;
+}
+
+const TimerModal: FC<ITimerModalProps> = ({
+	title,
+	isModalActive,
+	setModalActive,
+	trackList,
+	timerTitle,
+	timerDate,
+	trackId,
+	setTimerTitle,
+	setTimerDate,
+	setTrackId,
+	handleTimer
+}) => {
 	return (
 		<Modal
 			title={title}
@@ -27,7 +55,7 @@ const TimerModal = ({ title, isModalActive, setModalActive, trackList, timerTitl
 					/>
 
 					<div className={styles.tracksWrapper}>
-						{trackList.map((track: any) => (
+						{trackList.map((track: ITrack) => (
 							<label className={styles.label} key={track.id}>
 								<input
 									className={styles.inputRadio}

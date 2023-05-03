@@ -1,13 +1,26 @@
 import styles from './TrackItem.module.scss';
 import ListItemContent from "../ListItemContent";
-import { useState } from 'react';
+import React, { FC, useState } from 'react';
 import EditTrackInput from '../EditTrackInput';
+import ITrack from "../../shared/interfaces/track";
 
-const TrackItem = ({ id, title, src, setTrackList }: any) => {
+interface ITrackItemProps {
+	id: string;
+	title: string | React.ReactNode;
+	src?: string;
+	setTrackList: React.Dispatch<React.SetStateAction<ITrack[]>>
+}
+
+const TrackItem: FC<ITrackItemProps> = ({
+	id,
+	title,
+	src,
+	setTrackList
+}) => {
 	const [isTrackEdit, setTrackEdit] = useState(true);
 
-	const handleRemoveTrack = (e: any) => {
-		setTrackList((trackList: any[]) => {
+	const handleRemoveTrack = (e: React.MouseEvent<HTMLElement>) => {
+		setTrackList((trackList: ITrack[]) => {
 			const openRequest = indexedDB.open("db", 1);
 
 			openRequest.onsuccess = () => {
@@ -15,10 +28,10 @@ const TrackItem = ({ id, title, src, setTrackList }: any) => {
 				const transaction = db.transaction("tracks", "readwrite");
 
 				const tracks = transaction.objectStore("tracks");
-				tracks.delete(e.target.id);
+				tracks.delete((e.target as HTMLElement).id);
 			}
 
-			return trackList.filter((item) => item.id !== e.target.id);
+			return trackList.filter((item) => item.id !== (e.target as HTMLElement).id);
 		});
 	};
 

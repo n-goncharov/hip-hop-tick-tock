@@ -1,6 +1,19 @@
+import { FC } from 'react';
 import styles from './ListItemContent.module.scss';
 
-const ListItemContent = ({ id, title, handleEdit, handleRemove }: any) => {
+interface IListItemContentProps {
+	id: string;
+	title: string | React.ReactNode;
+	handleEdit: () => void;
+	handleRemove: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+const ListItemContent: FC<IListItemContentProps> = ({
+	id,
+	title,
+	handleEdit,
+	handleRemove
+}) => {
 	return (
 		<div className={styles.listItemContent}>
 			<div className={styles.title}>

@@ -1,8 +1,18 @@
 import styles from './ListBox.module.scss';
 import cn from "classnames";
-import { useState } from "react";
+import { FC, useState } from "react";
 
-const ListBox = ({ title, buttons, items }: any) => {
+interface IListBoxProps {
+	title: string;
+	buttons: React.ReactNode;
+	items: React.ReactNode[];
+}
+
+const ListBox: FC<IListBoxProps> = ({
+	title,
+	buttons,
+	items
+}) => {
 	const [isListActive, setListActive] = useState(false);
 
 	return (

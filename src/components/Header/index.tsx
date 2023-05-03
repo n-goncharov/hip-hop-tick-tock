@@ -1,15 +1,23 @@
 import styles from './Header.module.scss';
 import cn from "classnames";
-import { memo } from 'react';
+import { FC } from 'react';
 
-const Header = memo(({ isMenuActive, setMenuStatus }: any) => {
+interface IHeaderProps {
+	isMenuActive: boolean;
+	setMenuStatus: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header: FC<IHeaderProps> = ({
+	isMenuActive,
+	setMenuStatus
+}) => {
 	return (
 		<header className={styles.header}>
 			<h1 className={styles.title}>HipHopTickTock</h1>
 
 			<div
 				className={cn(styles.burger, { [styles.burgerActive]: isMenuActive })}
-				onClick={() => setMenuStatus((isMenuActive: any) => !isMenuActive)}
+				onClick={() => setMenuStatus((isMenuActive) => !isMenuActive)}
 			>
 				<img
 					width={25}
@@ -20,6 +28,6 @@ const Header = memo(({ isMenuActive, setMenuStatus }: any) => {
 			</div>
 		</header>
 	);
-});
+};
 
 export default Header;

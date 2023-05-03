@@ -1,10 +1,16 @@
+import { FC } from "react";
 import Button from "../Button";
 
-const AddTimerButton = ({ onClick }: any) => {
+interface IAddTimerButtonProps {
+	onClick: () => void;
+}
+
+const AddTimerButton: FC<IAddTimerButtonProps> = ({
+	onClick
+}) => {
 	return (
 		<Button
 			title='добавить'
-			name='add.png'
 			onClick={onClick}
 		/>
 	);

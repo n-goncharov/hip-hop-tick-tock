@@ -1,7 +1,18 @@
+import { FC } from 'react';
 import Clock from '../Clock';
 import styles from './CrazyClock.module.scss';
 
-const CrazyClock = ({ isMenuActive, setTimerActive, stopAudio }: any) => {
+interface ICrazyClockProps {
+	isMenuActive: boolean;
+	setTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
+	stopAudio: () => void;
+}
+
+const CrazyClock: FC<ICrazyClockProps> = ({
+	isMenuActive,
+	setTimerActive,
+	stopAudio
+}) => {
 	const handleClick = () => {
 		stopAudio();
 		setTimerActive(false);
@@ -19,7 +30,6 @@ const CrazyClock = ({ isMenuActive, setTimerActive, stopAudio }: any) => {
 				hourHand={hourHand}
 				minuteHand={minuteHand}
 				secondHand={secondHand}
-				buttonSrc='img/stop-timer-button.svg'
 				onClick={handleClick}
 			/>
 		</>

@@ -4,20 +4,23 @@ import Main from '../Main';
 import AddTimerModal from "../AddTimerModal";
 import EditTimerModal from "../EditTimerModal";
 
+import ITrack from "../../shared/interfaces/track";
+import ITimer from "../../shared/interfaces/timer";
+
 const App = () => {
   const [isMenuActive, setMenuStatus] = useState(false);
 
-  const [isAddTimerModalActive, setAddTimerModalActive] = useState(false);
-  const [isEditTimerModalActive, setEditTimerModalActive] = useState(false);
+  const [isAddTimerModalActive, setAddTimerModalActive] = useState<boolean>(false);
+  const [isEditTimerModalActive, setEditTimerModalActive] = useState<boolean>(false);
 
-  const [timerList, setTimerList] = useState<any[]>([]);
-  const [trackList, setTrackList] = useState<any[]>([]);
+  const [timerList, setTimerList] = useState<ITimer[]>([]);
+  const [trackList, setTrackList] = useState<ITrack[]>([]);
 
   const [timerTitle, setTimerTitle] = useState<string>('');
-  const [timerDate, setTimerDate] = useState<string | number | readonly string[]>('');
+  const [timerDate, setTimerDate] = useState('');
   const [trackId, setTrackId] = useState<string>('');
 
-  const [editTimerId, setEditTimerId] = useState('');
+  const [editTimerId, setEditTimerId] = useState<string>('');
 
   useEffect(() => {
     const openRequest = indexedDB.open("db", 1);
@@ -61,8 +64,8 @@ const App = () => {
     audioRef.current?.pause();
   };
 
-  const timerIdRef = useRef<any>();
-  const timerDateRef = useRef<any>();
+  const timerIdRef = useRef<string>('');
+  const timerDateRef = useRef<string>('');
 
   return (
     <>
@@ -137,8 +140,6 @@ const App = () => {
         setTrackId={setTrackId}
 
         editTimerId={editTimerId}
-
-        setTimerActive={setTimerActive}
       />
     </>
   );

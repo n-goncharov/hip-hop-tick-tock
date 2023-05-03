@@ -6,10 +6,53 @@ import AddTrackButton from '../AddTrackButton';
 import TrackItem from '../TrackItem';
 import TimerItem from '../TimerItem';
 import AddTimerButton from '../AddTimerButton';
-import { useRef } from 'react';
+import { FC, MutableRefObject, useContext } from 'react';
 import { ThemeContext, themes } from '../../contexts/ThemeContext';
+import ITimer from "../../shared/interfaces/timer";
+import ITrack from "../../shared/interfaces/track";
 
-const Menu = ({ isMenuActive, setAddTimerModalActive, setEditTimerModalActive, timerList, setTimerList, trackList, setTrackList, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef, timerIdRef, timerDateRef }: any) => {
+interface IMenuProps {
+	isMenuActive: boolean;
+	setAddTimerModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	setEditTimerModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	timerList: ITimer[];
+	setTimerList: React.Dispatch<React.SetStateAction<ITimer[]>>;
+	trackList: ITrack[];
+	setTrackList: React.Dispatch<React.SetStateAction<ITrack[]>>;
+	setTimerTitle: React.Dispatch<React.SetStateAction<string>>;
+	setTimerDate: React.Dispatch<React.SetStateAction<string>>;
+	setTrackId: React.Dispatch<React.SetStateAction<string>>;
+	setEditTimerId: React.Dispatch<React.SetStateAction<string>>;
+	setTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
+	audioRef: MutableRefObject<HTMLAudioElement | undefined>;
+	timerIdRef: MutableRefObject<string>;
+	timerDateRef: MutableRefObject<string>;
+}
+
+type SetTheme = (theme: string) => void;
+
+interface IThemeContextType {
+	theme: string;
+	setTheme: SetTheme;
+}
+
+const Menu: FC<IMenuProps> = ({
+	isMenuActive,
+	setAddTimerModalActive,
+	setEditTimerModalActive,
+	timerList,
+	setTimerList,
+	trackList,
+	setTrackList,
+	setTimerTitle,
+	setTimerDate,
+	setTrackId,
+	setEditTimerId,
+	setTimerActive,
+	audioRef,
+	timerIdRef,
+	timerDateRef
+}) => {
 	const openAddTimerModal = () => {
 		setTimerTitle('');
 		setTimerDate('');
@@ -17,17 +60,15 @@ const Menu = ({ isMenuActive, setAddTimerModalActive, setEditTimerModalActive, t
 		setAddTimerModalActive(true);
 	}
 
-	const timerButtons = useRef(
-		<AddTimerButton onClick={openAddTimerModal} />
-	);
+	const timerButtons = <AddTimerButton onClick={openAddTimerModal} />;
 
-	const timers = timerList.map((timer: any) => (
+	const timers = timerList.map((timer: ITimer) => (
 		<TimerItem
 			key={timer.id}
 
 			id={timer.id}
 			title={timer.title}
-			trackId={timer.track_id}
+			trackId={timer.trackId}
 			date={timer.date}
 
 			setTimerList={setTimerList}
@@ -48,14 +89,14 @@ const Menu = ({ isMenuActive, setAddTimerModalActive, setEditTimerModalActive, t
 		/>
 	));
 
-	const trackButtons = useRef([
+	const trackButtons = (
 		<AddTrackButton
 			key='addTrackButton'
 			setTrackList={setTrackList}
-		/>,
-	]);
+		/>
+	);
 
-	const tracks = trackList.map((track: any) => (
+	const tracks = trackList.map((track: ITrack) => (
 		<TrackItem
 			key={track.id}
 			id={track.id}
@@ -65,34 +106,33 @@ const Menu = ({ isMenuActive, setAddTimerModalActive, setEditTimerModalActive, t
 		/>
 	));
 
+	const { theme, toggleTheme } = useContext(ThemeContext);
+
 	return (
 		<aside className={cn(styles.menu, { [styles.menuActive]: isMenuActive })}>
 
-			<ThemeContext.Consumer>
-				{({ theme, setTheme }: any) => (
-					<Toggle
-						onChange={() => {
-							if (theme === themes.light) {
-								setTheme(themes.dark);
-							} else {
-								setTheme(themes.light);
-							}
-						}}
-						theme={theme}
-						themes={themes}
-					/>
-				)}
-			</ThemeContext.Consumer>
+			<Toggle
+				onClick={() => {
+					if (theme === themes.light) {
+						toggleTheme(themes.dark);
+					} else {
+						toggleTheme(themes.light);
+					}
+				}}
+				theme={theme}
+				themes={themes}
+			/>
+
 
 			<ListBox
 				title='Мои таймеры'
-				buttons={timerButtons.current}
+				buttons={timerButtons}
 				items={timers}
 			/>
 
 			<ListBox
 				title='Библиотека треков'
-				buttons={trackButtons.current}
+				buttons={trackButtons}
 				items={tracks}
 			/>
 		</aside>

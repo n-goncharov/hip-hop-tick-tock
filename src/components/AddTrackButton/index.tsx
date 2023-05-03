@@ -1,44 +1,54 @@
 import styles from './AddTrackButton.module.scss';
 import Button from '../Button';
+import ITrack from "../../shared/interfaces/track";
+import React, { FC } from 'react';
 
-const AddTrackButton = ({ setTrackList }: any) => {
-	const handleAddTrack = (e: any) => {
-		const file = e.target.files[0];
+interface IAddTrackButtonProps {
+	setTrackList: React.Dispatch<React.SetStateAction<ITrack[]>>
+}
 
-		const reader = new FileReader();
+const AddTrackButton: FC<IAddTrackButtonProps> = ({
+	setTrackList
+}) => {
+	const handleAddTrack = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.target.files && e.target.files.length > 0) {
+			const file = e.target.files[0];
 
-		reader.onload = () => {
-			const src = reader.result;
+			const reader = new FileReader();
 
-			const openRequest = indexedDB.open("db", 1);
+			reader.onload = () => {
+				const src = reader.result;
 
-			openRequest.onsuccess = () => {
-				const db = openRequest.result;
-				const transaction = db.transaction('tracks', 'readwrite');
-				const tracks = transaction.objectStore('tracks');
+				const openRequest = indexedDB.open("db", 1);
 
-				const track: { id: string, title: string, src: string | ArrayBuffer | null } = {
-					id: file.name,
-					title: file.name,
-					src: src
+				openRequest.onsuccess = () => {
+					const db = openRequest.result;
+					const transaction = db.transaction('tracks', 'readwrite');
+					const tracks = transaction.objectStore('tracks');
+
+					const track: ITrack = {
+						id: file.name,
+						title: file.name,
+						src: src as string
+					};
+
+					const request = tracks.add(track, track.id);
+
+					request.onsuccess = () => {
+						console.log(`Track ${request.result} added to indexedDB`);
+					};
+
+					request.onerror = () => {
+						console.log('Error: ', request.error);
+					};
+
+					setTrackList((trackList: ITrack[]) => [...trackList, track]);
 				};
-
-				const request = tracks.add(track, track.id);
-
-				request.onsuccess = () => {
-					console.log(`Track ${request.result} added to indexedDB`);
-				};
-
-				request.onerror = () => {
-					console.log('Error: ', request.error);
-				};
-
-				setTrackList((trackList: any) => [...trackList, track]);
 			};
-		};
 
-		reader.readAsDataURL(file);
-		e.target.value = null;
+			reader.readAsDataURL(file);
+			e.target.value = '';
+		}
 	}
 
 	return (

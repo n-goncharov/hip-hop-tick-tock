@@ -1,6 +1,15 @@
+import { FC } from 'react';
 import styles from './Button.module.scss';
 
-const Button = ({ title, onClick }: any) => {
+interface IButtonProps {
+	title: string;
+	onClick?: () => void;
+}
+
+const Button: FC<IButtonProps> = ({
+	title,
+	onClick
+}) => {
 	return (
 		<div
 			className={styles.button}

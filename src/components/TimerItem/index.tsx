@@ -1,10 +1,45 @@
 import styles from './TimerItem.module.scss'
 import ListItemContent from "../ListItemContent";
-import { useEffect } from 'react';
+import React, { FC, MutableRefObject, RefObject, useEffect } from 'react';
 
-const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, setTimerTitle, setTimerDate, setTrackId, setEditTimerId, setTimerActive, audioRef, timerIdRef, timerDateRef }: any) => {
+import ITrack from '../../shared/interfaces/track';
+import ITimer from "../../shared/interfaces/timer";
+
+interface ITimerItemProps {
+	id: string;
+	title: string;
+	trackId: string;
+	date: string;
+	setTimerList: React.Dispatch<React.SetStateAction<ITimer[]>>;
+	setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+	setTimerTitle: React.Dispatch<React.SetStateAction<string>>;
+	setTimerDate: React.Dispatch<React.SetStateAction<string>>;
+	setTrackId: React.Dispatch<React.SetStateAction<string>>;
+	setEditTimerId: React.Dispatch<React.SetStateAction<string>>;
+	setTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
+	audioRef: MutableRefObject<HTMLAudioElement | undefined>;
+	timerIdRef: MutableRefObject<string>;
+	timerDateRef: MutableRefObject<string>;
+}
+
+const TimerItem: FC<ITimerItemProps> = ({
+	id,
+	title,
+	trackId,
+	date,
+	setTimerList,
+	setModalActive,
+	setTimerTitle,
+	setTimerDate,
+	setTrackId,
+	setEditTimerId,
+	setTimerActive,
+	audioRef,
+	timerIdRef,
+	timerDateRef
+}) => {
 	useEffect(() => {
-		let timeoutId: any;
+		let timeoutId: NodeJS.Timeout;
 
 		const openRequest = indexedDB.open("db", 1);
 
@@ -19,7 +54,7 @@ const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, set
 				const timerDate = new Date(date);
 				const ms = +timerDate - Date.now();
 
-				const track = requestTracks.result.find((track: any) => track.id === trackId);
+				const track = requestTracks.result.find((track: ITrack) => track.id === trackId);
 				const src = track.src;
 
 				if (ms >= 0) {
@@ -29,7 +64,7 @@ const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, set
 						audioRef.current.play();
 						audioRef.current.onended = () => setTimerActive(false);
 
-						setTimerList((timerList: any[]) => {
+						setTimerList((timerList: ITimer[]) => {
 							const openRequest = indexedDB.open("db", 1);
 
 							openRequest.onsuccess = () => {
@@ -65,8 +100,8 @@ const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, set
 		setModalActive(true);
 	};
 
-	const handleRemoveTimer = (e: any) => {
-		setTimerList((timerList: any[]) => {
+	const handleRemoveTimer = (e: React.MouseEvent<HTMLElement>) => {
+		setTimerList((timerList: ITimer[]) => {
 			const openRequest = indexedDB.open("db", 1);
 
 			openRequest.onsuccess = () => {
@@ -74,10 +109,10 @@ const TimerItem = ({ id, title, trackId, date, setTimerList, setModalActive, set
 				const transaction = db.transaction("timers", "readwrite");
 
 				const timers = transaction.objectStore("timers");
-				timers.delete(e.target.id);
+				timers.delete((e.target as HTMLElement).id);
 			}
 
-			return timerList.filter((item) => item.id !== e.target.id)
+			return timerList.filter((item) => item.id !== (e.target as HTMLElement).id)
 		});
 	};
 
